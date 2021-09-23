@@ -1,0 +1,44 @@
+#------Experiments to test (separated with commas)-----
+# To see all the available ones, please look in the
+# montepython/likelihoods folder. Every folder there is a valid likelihood to
+# test.
+data.experiments=['litebird_lowE']
+#data.experiments=['wmap','spt']
+
+#------ Parameter list -------
+# data.parameters[class name] = [mean, min, max, 1-sigma, scale, role]
+# - if min max irrelevant, put to -1 or None (if you want a boundary of -1, use -1.0)
+# - if fixed, put 1-sigma to 0
+# - if scale irrelevant, put to 1, otherwise to the appropriate factor
+# - role is either 'cosmo', 'nuisance' or 'derived'
+
+
+# Cosmological parameters list
+data.cosmo_arguments['omega_b'] 	= 0.02237
+data.cosmo_arguments['omega_cdm'] 	= 0.1200
+data.cosmo_arguments['n_s']       	= 0.9649
+data.cosmo_arguments['h']         	= 0.6736
+#data.cosmo_arguments['exp_m_2_tau_As']	= 1.883e-9
+
+data.parameters['tau_reio']    	= [0.0544,  -1, -1, 0.0073, 1, 'cosmo']
+data.parameters['exp_m_2_tau_As'] = [1.883, -1, -1, 0, 1e-9, 'cosmo']
+
+# Nuisance parameter list, same call, except the name does not have to be a class name
+# For wmap:
+#data.parameters['A_SZ']         = [1,    0, 2,   1, 1,  'nuisance']
+# For SPT
+#data.parameters['SPT_SZ']       = [5.6,  0,-1, 2.5, 1,  'nuisance']
+#data.parameters['SPT_PS']       = [20.4,-1,-1, 2.7, 1, 'nuisance']
+#data.parameters['SPT_CL']       = [5.3, -1,-1, 2.3, 1, 'nuisance']
+
+# Derived parameter list
+data.parameters['z_reio']       = [0,       -1, -1, 0,1,  'derived']
+data.parameters['Omega_Lambda'] = [0,       -1, -1, 0,1,  'derived']
+
+
+#------ Mcmc parameters ----
+# Number of steps taken, by default (overwritten by the -N command)
+data.N=1000
+# Number of accepted steps before writing to file the chain. Larger means less
+# access to disc, but this is not so much time consuming.
+data.write_step=5
