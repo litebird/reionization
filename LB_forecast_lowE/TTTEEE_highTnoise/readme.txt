@@ -1,4 +1,4 @@
-This folder contains input and data files (fiducial spectra and noise) to run montepython forecast using TTTEEE assuming high noise in temperature to mimic forecast with EE only.
+This folder contains input and data files (fiducial spectra and noise) to run montepython forecast using TTTEEE assuming high noise in temperature to mimic forecast with EE only. Folder LB litebird_lowE/ is to be put inside the directory montepython/likelihoods/ of MontePython
 
 exact likelihood
 TTTEEE
