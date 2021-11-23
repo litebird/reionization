@@ -1,0 +1,22 @@
+# Where to read/write fiducial model
+litebird_planck_v1.data_directory     = data.path['data']
+litebird_planck_v1.fiducial_file      = 'litebird_planck_v1_fiducial.dat'
+
+litebird_planck_v1.l_min              = 2
+litebird_planck_v1.l_max              = 3000
+litebird_planck_v1.f_sky              = 0.57
+
+# Do you want to include Bmodes (Gaussian approximation)?
+litebird_planck_v1.Bmodes = False
+litebird_planck_v1.delensing = False
+
+# Do you want to use noise from file?
+litebird_planck_v1.noise_from_file = True
+litebird_planck_v1.noise_file = 'noise_litebird_planck_v1.dat'
+
+
+# Do you want to include lensing extraction?
+litebird_planck_v1.LensingExtraction = True
+litebird_planck_v1.neglect_TD = True
+litebird_planck_v1.unlensed_clTTTEEE = False
+litebird_planck_v1.ExcludeTTTEEE = False
