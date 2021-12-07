@@ -39,3 +39,16 @@ We post here the files thyat are necessary to reproduce (or compare with) our fo
     - model: LambdaCDM with a varying m_ncdm, and thus a total mass Mnu = 3 * m_ncdm
         - after rounding, we get the same sigma(tau_reio) = 0.0022 as for fixed Mnu
         - the neutrino amss bound is almost the same as in the v1 case, Mnu < 0.32 eV (95%CL)
+        - further details can be seen in input/litebird_planck_v2_mnu.ini (input) and in chains/litebird_planck_v2_mnu/... (output)
+
+* litebird_w_lens likelihood and litebird_w_lens_lcdm chains (6.12.2021):
+
+    - likelihood: we sketeched a litebird-alone likelohood in the following way:
+        - the LiteBird noise NlEE comes from the simulations at low l, assuming a sensitivity of 6.56 muK*arcmin at intermediate l, assuming a 30 arcmin beam at large l, l_max=1350, and fsky = 0.7
+          (so this is like in the litebird_planck_v2 case but without the Planck noise at large l)
+        - the LiteBird noise NLTT and Nldd comes from the paper 1808.05955, that is, from the file "noise_litebird.dat" of the public MontePython.
+        - note that NlTT does not really matter since we are comsic variance dominated at low l. Nldd does matter and we will do another test where we remove lensing extraction, for the sake of comparison.
+
+    - model:  minimal LambdaCDM with the parameters discussed in previous telecons and Mnu fixed to 3*0.02eV
+        - we get once more sigma(tau_reio) = 0.0022, which is identical to the results 1808.05955, despite of the fact that we have slightly degraded NlEE at very low l.
+        - further details can be seen in input/litebird_w_lens_lcdm.ini (input) and in chains/litebird_w_lens_lcdm/... (output)
