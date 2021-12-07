@@ -52,3 +52,11 @@ We post here the files thyat are necessary to reproduce (or compare with) our fo
     - model:  minimal LambdaCDM with the parameters discussed in previous telecons and Mnu fixed to 3*0.02eV
         - we get once more sigma(tau_reio) = 0.0022, which is identical to the results 1808.05955, despite of the fact that we have slightly degraded NlEE at very low l.
         - further details can be seen in input/litebird_w_lens_lcdm.ini (input) and in chains/litebird_w_lens_lcdm/... (output)
+
+* litebird_wo_lens likelihood and litebird_wo_lens_lcdm chains (6.12.2021):
+
+    - likelihood: the only difference w.r.t. litebird_w_lens is the fact that we turn off lensing extraction (LensingExtraction = False)
+
+    - model:  minimal LambdaCDM with the parameters discussed in previous telecons and Mnu fixed to 3*0.02eV
+        - we get once more sigma(tau_reio) = 0.0022, which suggests that this result comes entirely from the sensitivity to polarisation (+temperature) and is unaffected by lensing
+        - further details can be seen in input/litebird_wo_lens_lcdm.ini (input) and in chains/litebird_wo_lens_lcdm/... (output)
