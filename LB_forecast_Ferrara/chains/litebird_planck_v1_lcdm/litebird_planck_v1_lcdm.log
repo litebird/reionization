@@ -1,0 +1,7 @@
+2021-12-06_600000__1.txt	  Number of steps:16269	 Steps accepted:4875	 acc = 0.3	min(-loglike) = 0.09
+2021-12-06_600000__3.txt	  Number of steps:14938	 Steps accepted:4774	 acc = 0.32	min(-loglike) = 0.05
+2021-12-06_600000__2.txt	  Number of steps:16271	 Steps accepted:4878	 acc = 0.3	min(-loglike) = 0.12
+2021-12-06_600000__4.txt	  Number of steps:16350	 Steps accepted:4710	 acc = 0.29	min(-loglike) = 0.05
+--> Total    number    of    steps: 63828
+--> Total number of accepted steps: 19237
+--> Minimum of -logLike           : 0.05
