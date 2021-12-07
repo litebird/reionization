@@ -25,8 +25,17 @@ We post here the files thyat are necessary to reproduce (or compare with) our fo
 * litebird_planck_v2 likelihood and litebird_planck_v2_lcdm chains (3.12.2021):
 
     - likelihood: LiteBird + Planck, differing from litebird_planck_v1 only through the fact that fsky is taken to be 0.70 in the LiteBird range 2 <= l <= 600 and 0.57 in the Planck range l > 600
-                  (the l-dependent f_sky is written in the last column of the noise file and is read by the likelihood code, which required a small modification of this code)
+                  (the l-dependent f_sky is written in the last column of the noise file and is read by the likelihood_mock_cmb code inside montepython/likelihood_class.py,
+                  which required a small modification of this file)
 
     - model: minimal LambdaCDM with the parameters discussed in previous telecons and Mnu fixed to 3*0.02eV
         - we get slightly smaller errors, but the impact is minor, and rounding at two digits we still get sigma(tau_reio) = 0.0022
         - further details can be seen in input/litebird_planck_v2_lcdm.ini (input) and in chains/litebird_planck_v2_lcdm/... (output)
+
+* litebird_planck_v2 likelihood and litebird_planck_v2_mnu chains (3.12.2021):
+
+    - likelihood: same likelihood and fiducial model as above with varying f_sky = 0.70 -> 0.57
+
+    - model: LambdaCDM with a varying m_ncdm, and thus a total mass Mnu = 3 * m_ncdm
+        - after rounding, we get the same sigma(tau_reio) = 0.0022 as for fixed Mnu
+        - the neutrino amss bound is almost the same as in the v1 case, Mnu < 0.32 eV (95%CL)
