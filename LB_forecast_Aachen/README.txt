@@ -9,9 +9,9 @@ We post here the files thyat are necessary to reproduce (or compare with) our fo
         - we kept the option of CMB lensing extraction, LensingExtraction = True, using the noise Nldd from fake_planck_realistic
         - further details can be checked in montepyhton/likelihoods/litebird_planck_v1
 
-    -model: minimal LambdaCDM with the parameters discussed in previous telecons and Mnu fixed to 3*0.02eV
+    - model: minimal LambdaCDM with the parameters discussed in previous telecons and Mnu fixed to 3*0.02eV
         - we get sigma(tau_reio) = 0.0022
-        - further detials can be seen in input/litebird_planck_v1_lcdm.ini (input) and in chains/litebird_planck_v1_lcdm/... (output)
+        - further details can be seen in input/litebird_planck_v1_lcdm.ini (input) and in chains/litebird_planck_v1_lcdm/... (output)
 
 * litebird_planck_v1 likelihood and litebird_planck_v1_mnu chains (24.11.2021):
 
@@ -21,3 +21,12 @@ We post here the files thyat are necessary to reproduce (or compare with) our fo
         - we get the same sigma(tau_reio) = 0.0022 as for fixed Mnu
         - we get no lower bound on m_ncdm, just an upper bound m_ncdm < 0.11 eV (95%CL)
         - this translates into Mnu < 0.33 eV (95%CL)
+
+* litebird_planck_v2 likelihood and litebird_planck_v2_lcdm chains (3.12.2021):
+
+    - likelihood: LiteBird + Planck, differing from litebird_planck_v1 only through the fact that fsky is taken to be 0.70 in the LiteBird range 2 <= l <= 600 and 0.57 in the Planck range l > 600
+                  (the l-dependent f_sky is written in the last column of the noise file and is read by the likelihood code, which required a small modification of this code)
+
+    - model: minimal LambdaCDM with the parameters discussed in previous telecons and Mnu fixed to 3*0.02eV
+        - we get slightly smaller errors, but the impact is minor, and rounding at two digits we still get sigma(tau_reio) = 0.0022
+        - further details can be seen in input/litebird_planck_v2_lcdm.ini (input) and in chains/litebird_planck_v2_lcdm/... (output)
