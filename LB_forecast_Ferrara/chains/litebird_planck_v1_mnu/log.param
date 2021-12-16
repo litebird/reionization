@@ -21,6 +21,8 @@ data.parameters['n_s']       	= [0.96605,  -1,-1, 0.004,     1,'cosmo']
 data.parameters['A_s']       	= [2.1005,   -1,-1, 0.03,   1e-9,'cosmo']
 data.parameters['100*theta_s']  = [1.041684, -1,-1, 0.0003,    1,'cosmo']
 data.parameters['tau_reio']    	= [0.0543,   0.004,-1, 0.008,     1,'cosmo']
+data.parameters['m_ncdm']       = [0.02, 0.0, -1, 0.1, 1,'cosmo']
+
 
 # Derived parameter list
 data.parameters['H0']           = [0,       -1, -1, 0,1,  'derived']
@@ -31,7 +33,7 @@ data.parameters['Omega_Lambda'] = [0,       -1, -1, 0,1,  'derived']
 #data.cosmo_arguments['sBBN file'] = data.path['cosmo']+'/external/bbn/sBBN.dat'
 # massive neutrinos:
 data.cosmo_arguments['N_ncdm'] = 1
-data.cosmo_arguments['m_ncdm'] = 0.02
+#data.cosmo_arguments['m_ncdm'] = 0.02
 data.cosmo_arguments['T_ncdm'] = 0.71611
 data.cosmo_arguments['deg_ncdm'] = 3
 # massless neutrinos:
@@ -46,7 +48,6 @@ data.N=10
 # Number of accepted steps before writing to file the chain. Larger means less
 # access to disc, but this is not so much time consuming.
 data.write_step=5
-
 
 
 #-----Likelihood-litebird_planck_v1-----
@@ -66,7 +67,7 @@ litebird_planck_v1.ExcludeTTTEEE = False
 
 
 #-----------Cosmological-arguments---------
-data.cosmo_arguments.update({'N_ncdm': 1, 'm_ncdm': 0.02, 'T_ncdm': 0.71611, 'deg_ncdm': 3, 'N_ur': 0.00441, 'lensing': 'yes', 'output': 'tCl lCl pCl', 'l_max_scalars': 3000})
+data.cosmo_arguments.update({'N_ncdm': 1, 'T_ncdm': 0.71611, 'deg_ncdm': 3, 'N_ur': 0.00441, 'lensing': 'yes', 'output': 'tCl lCl pCl', 'l_max_scalars': 3000})
 
 
 #--------Default-Configuration------
