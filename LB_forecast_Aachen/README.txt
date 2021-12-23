@@ -70,20 +70,9 @@ We post here the files thyat are necessary to reproduce (or compare with) our fo
         - we get once more sigma(tau_reio) = 0.0022, which suggests that this result comes entirely from the sensitivity to polarisation (+temperature) and is unaffected by lensing
         - further details can be seen in input/litebird_wo_lens_lcdm.ini (input) and in chains/litebird_wo_lens_lcdm/... (output)
 
-* litebird_wo_lens_mnu
-
-* litebird_w_lens likelihood and litebird_w_lens_mnu chains (12.12.2021):
-
-    - likelihood: same as above (litebird only with lensing extraction)
-
-    - model: LambdaCDM with a varying m_ncdm, and thus a total mass Mnu = 3 * m_ncdm
-        - after rounding, we get the usual sigma(tau_reio) = 0.0022
-        - the neutrino mass bound, Mnu < 0.36 eV (95%CL), degrades a bit with repect to LiteBird+Planck (it was 0.32 eV with Planck)
-        - further details can be seen in input/litebird_w_lens_mnu.ini (input) and in chains/litebird_w_lens_mnu/... (output)
-
 * litebird_wo_lens likelihood and litebird_wo_lens_mnu chains (12.12.2021):
 
-    - likelihood: same as above (litebird only without lensing extraction)
+    - likelihood: same as above (litebird only without lensing extraction), wrong fiducial file, needs to be updated
 
     - model: LambdaCDM with a varying m_ncdm, and thus a total mass Mnu = 3 * m_ncdm
         - after rounding, we get the sigma(tau_reio) = 0.0023, so lensing extraction has a tiny impact when Mnu fluctuates (with lensing extraction we had 0.022)
