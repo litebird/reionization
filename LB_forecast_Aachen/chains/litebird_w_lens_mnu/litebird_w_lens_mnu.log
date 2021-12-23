@@ -1,0 +1,35 @@
+2021-12-17_100000__2.txt	  Number of steps:5667	 Steps accepted:1412	 acc = 0.25	min(-loglike) = 0.26
+2021-12-17_100000__1.txt	  Number of steps:5826	 Steps accepted:1427	 acc = 0.24	min(-loglike) = 0.23
+2021-12-17_100000__7.txt	  Number of steps:5756	 Steps accepted:1376	 acc = 0.24	min(-loglike) = 0.34
+2021-12-17_100000__14.txt	  Number of steps:7000	 Steps accepted:1808	 acc = 0.26	min(-loglike) = 0.38
+2021-12-17_100000__3.txt	  Number of steps:5852	 Steps accepted:1461	 acc = 0.25	min(-loglike) = 0.26
+2021-12-18_100000__15.txt	  Number of steps:13314	 Steps accepted:3430	 acc = 0.26	min(-loglike) = 0.29
+2021-12-18_100000__13.txt	  Number of steps:13463	 Steps accepted:3443	 acc = 0.26	min(-loglike) = 0.16
+2021-12-17_100000__4.txt	  Number of steps:5938	 Steps accepted:1442	 acc = 0.24	min(-loglike) = 0.32
+2021-12-17_100000__11.txt	  Number of steps:6961	 Steps accepted:1812	 acc = 0.26	min(-loglike) = 0.29
+2021-12-18_100000__14.txt	  Number of steps:13146	 Steps accepted:3412	 acc = 0.26	min(-loglike) = 0.27
+2021-12-18_100000__5.txt	  Number of steps:4556	 Steps accepted:1167	 acc = 0.26	min(-loglike) = 0.45
+2021-12-17_100000__10.txt	  Number of steps:7065	 Steps accepted:1816	 acc = 0.26	min(-loglike) = 0.30
+2021-12-17_100000__6.txt	  Number of steps:5882	 Steps accepted:1462	 acc = 0.25	min(-loglike) = 0.32
+2021-12-18_100000__8.txt	  Number of steps:4654	 Steps accepted:1152	 acc = 0.25	min(-loglike) = 0.12
+2021-12-18_100000__2.txt	  Number of steps:4586	 Steps accepted:1137	 acc = 0.25	min(-loglike) = 0.29
+2021-12-17_100000__15.txt	  Number of steps:7021	 Steps accepted:1831	 acc = 0.26	min(-loglike) = 0.23
+2021-12-18_100000__7.txt	  Number of steps:4656	 Steps accepted:1171	 acc = 0.25	min(-loglike) = 0.36
+2021-12-17_100000__9.txt	  Number of steps:7033	 Steps accepted:1802	 acc = 0.26	min(-loglike) = 0.25
+2021-12-18_100000__10.txt	  Number of steps:13227	 Steps accepted:3441	 acc = 0.26	min(-loglike) = 0.13
+2021-12-18_100000__12.txt	  Number of steps:13316	 Steps accepted:3541	 acc = 0.27	min(-loglike) = 0.15
+2021-12-18_100000__6.txt	  Number of steps:4610	 Steps accepted:1181	 acc = 0.26	min(-loglike) = 0.21
+2021-12-18_100000__16.txt	  Number of steps:13116	 Steps accepted:3412	 acc = 0.26	min(-loglike) = 0.23
+2021-12-17_100000__16.txt	  Number of steps:7143	 Steps accepted:1767	 acc = 0.25	min(-loglike) = 0.23
+2021-12-18_100000__1.txt	  Number of steps:4670	 Steps accepted:1137	 acc = 0.24	min(-loglike) = 0.50
+2021-12-17_100000__12.txt	  Number of steps:7013	 Steps accepted:1796	 acc = 0.26	min(-loglike) = 0.19
+2021-12-18_100000__4.txt	  Number of steps:4486	 Steps accepted:1116	 acc = 0.25	min(-loglike) = 0.32
+2021-12-17_100000__8.txt	  Number of steps:5854	 Steps accepted:1437	 acc = 0.25	min(-loglike) = 0.14
+2021-12-18_100000__9.txt	  Number of steps:13077	 Steps accepted:3389	 acc = 0.26	min(-loglike) = 0.19
+2021-12-18_100000__3.txt	  Number of steps:4634	 Steps accepted:1192	 acc = 0.26	min(-loglike) = 0.41
+2021-12-17_100000__13.txt	  Number of steps:7043	 Steps accepted:1756	 acc = 0.25	min(-loglike) = 0.31
+2021-12-17_100000__5.txt	  Number of steps:5812	 Steps accepted:1447	 acc = 0.25	min(-loglike) = 0.31
+2021-12-18_100000__11.txt	  Number of steps:13387	 Steps accepted:3337	 acc = 0.25	min(-loglike) = 0.17
+--> Total    number    of    steps: 245764
+--> Total number of accepted steps: 62510
+--> Minimum of -logLike           : 0.12

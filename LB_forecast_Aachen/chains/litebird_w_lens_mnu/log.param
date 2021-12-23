@@ -1,0 +1,77 @@
+#-----CLASS v3.1.0 (branch: master, hash: af4e589ba34518b535a73933d88215c6c23e8ce7)-----
+
+#------Experiments to test (separated with commas)-----
+# To see all the available ones, please look in the
+# montepython/likelihoods folder. Every folder there is a valid likelihood to
+# test.
+data.experiments=['litebird_w_lens']
+
+#------ Parameter list -------
+# data.parameters[class name] = [mean, min, max, 1-sigma, scale, role]
+# - if min max irrelevant, put to -1 or None (if you want a boundary of -1, use -1.0)
+# - if fixed, put 1-sigma to 0
+# - if scale irrelevant, put to 1, otherwise to the appropriate factor
+# - role is either 'cosmo', 'nuisance' or 'derived'
+
+
+# Cosmological parameters list
+data.parameters['omega_b'] 	= [2.2383,   -1,-1, 0.00015,0.01,'cosmo']
+data.parameters['omega_cdm'] 	= [0.12011,  -1,-1, 0.0014,    1,'cosmo']
+data.parameters['n_s']       	= [0.96605,  -1,-1, 0.004,     1,'cosmo']
+data.parameters['A_s']       	= [2.1005,   -1,-1, 0.03,   1e-9,'cosmo']
+data.parameters['100*theta_s']  = [1.041684, -1,-1, 0.0003,    1,'cosmo']
+data.parameters['tau_reio']    	= [0.0543,   0.004,-1, 0.008,     1,'cosmo']
+data.parameters['m_ncdm']       = [0.02, 0.0, -1, 0.1, 1,'cosmo']
+
+
+# Derived parameter list
+data.parameters['H0']           = [0,       -1, -1, 0,1,  'derived']
+data.parameters['z_reio']       = [0,       -1, -1, 0,1,  'derived']
+data.parameters['Omega_Lambda'] = [0,       -1, -1, 0,1,  'derived']
+
+# fixed CLASS parameters
+#data.cosmo_arguments['sBBN file'] = data.path['cosmo']+'/external/bbn/sBBN.dat'
+# massive neutrinos:
+data.cosmo_arguments['N_ncdm'] = 1
+#data.cosmo_arguments['m_ncdm'] = 0.02
+data.cosmo_arguments['T_ncdm'] = 0.71611
+data.cosmo_arguments['deg_ncdm'] = 3
+# massless neutrinos:
+data.cosmo_arguments['N_ur'] = 0.00441
+# non-linear corrections
+#data.cosmo_arguments['non linear'] = 'halofit'
+
+
+#------ Mcmc parameters ----
+# Number of steps taken, by default (overwritten by the -N command)
+data.N=10
+# Number of accepted steps before writing to file the chain. Larger means less
+# access to disc, but this is not so much time consuming.
+data.write_step=5
+
+
+#-----Likelihood-litebird_w_lens-----
+litebird_w_lens.noise_from_file = True
+litebird_w_lens.l_max = 1350
+litebird_w_lens.unlensed_clTTTEEE = False
+litebird_w_lens.data_directory = '/rwthfs/rz/cluster/home/zi440042/Cosmo_Codes/MontePython/data'
+litebird_w_lens.LensingExtraction = True
+litebird_w_lens.ExcludeTTTEEE = False
+litebird_w_lens.delensing = False
+litebird_w_lens.fiducial_file = 'litebird_w_lens_fiducial.dat'
+litebird_w_lens.Bmodes = False
+litebird_w_lens.noise_file = 'noise_litebird_alone.dat'
+litebird_w_lens.neglect_TD = True
+litebird_w_lens.l_min = 2
+
+
+#-----------Cosmological-arguments---------
+data.cosmo_arguments.update({'N_ur': 0.00441, 'N_ncdm': 1, 'deg_ncdm': 3, 'l_max_scalars': 1350, 'lensing': 'yes', 'output': 'tCl lCl pCl', 'T_ncdm': 0.71611})
+
+
+#--------Default-Configuration------
+data.path['cosmo']	= '/home/zi440042/Cosmo_Codes/class'
+data.path['root']	= '/rwthfs/rz/cluster/home/zi440042/Cosmo_Codes/MontePython'
+data.path['data']	= '/rwthfs/rz/cluster/home/zi440042/Cosmo_Codes/MontePython/data'
+data.path['clik']	= '/home/zi440042/Cosmo_Codes/planck/code/plc_3.0/plc-3.01'
+data.path['MontePython']	= '/rwthfs/rz/cluster/home/zi440042/Cosmo_Codes/MontePython/montepython'
