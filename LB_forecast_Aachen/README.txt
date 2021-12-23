@@ -62,8 +62,7 @@ We post here the files thyat are necessary to reproduce (or compare with) our fo
         - the neutrino mass bound degrades a bit w.r.t Litebird+Planck, Mnu < 0.36 eV (95%CL)
         - further details can be seen in input/litebird_w_lens_mnu.ini (input) and in chains/litebird_planck_v2_mnu/... (output)
 
-TO BE UPDATED:
-* litebird_wo_lens likelihood and litebird_wo_lens_lcdm chains (6.12.2021):
+* litebird_wo_lens likelihood and litebird_wo_lens_lcdm chains (updated 23.12.2021):
 
     - likelihood: the only difference w.r.t. litebird_w_lens is the fact that we turn off lensing extraction (LensingExtraction = False)
 
