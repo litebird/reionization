@@ -1,0 +1,19 @@
+2022-02-02_100000__3.txt	  Number of steps:10449	 Steps accepted:8375	 acc = 0.8	min(-loglike) = 0.21
+2022-02-02_100000__2.txt	  Number of steps:11179	 Steps accepted:8375	 acc = 0.75	min(-loglike) = 0.30
+2022-02-02_100000__8.txt	  Number of steps:10630	 Steps accepted:8175	 acc = 0.77	min(-loglike) = 0.15
+2022-02-03_100000__7.txt	  Number of steps:5171	 Steps accepted:3190	 acc = 0.62	min(-loglike) = 0.29
+2022-02-02_100000__5.txt	  Number of steps:10697	 Steps accepted:8255	 acc = 0.77	min(-loglike) = 0.21
+2022-02-02_100000__6.txt	  Number of steps:10633	 Steps accepted:8360	 acc = 0.79	min(-loglike) = 0.29
+2022-02-03_100000__2.txt	  Number of steps:5218	 Steps accepted:3020	 acc = 0.58	min(-loglike) = 0.41
+2022-02-02_100000__4.txt	  Number of steps:10386	 Steps accepted:8555	 acc = 0.82	min(-loglike) = 0.29
+2022-02-03_100000__6.txt	  Number of steps:5474	 Steps accepted:3170	 acc = 0.58	min(-loglike) = 0.24
+2022-02-02_100000__7.txt	  Number of steps:10503	 Steps accepted:8675	 acc = 0.83	min(-loglike) = 0.24
+2022-02-03_100000__4.txt	  Number of steps:5247	 Steps accepted:3130	 acc = 0.6	min(-loglike) = 0.16
+2022-02-03_100000__8.txt	  Number of steps:5377	 Steps accepted:3060	 acc = 0.57	min(-loglike) = 0.18
+2022-02-03_100000__1.txt	  Number of steps:5046	 Steps accepted:3140	 acc = 0.62	min(-loglike) = 0.21
+2022-02-03_100000__5.txt	  Number of steps:5371	 Steps accepted:3000	 acc = 0.56	min(-loglike) = 0.24
+2022-02-03_100000__3.txt	  Number of steps:5404	 Steps accepted:3055	 acc = 0.57	min(-loglike) = 0.45
+2022-02-02_100000__1.txt	  Number of steps:10747	 Steps accepted:8430	 acc = 0.78	min(-loglike) = 0.28
+--> Total    number    of    steps: 127542
+--> Total number of accepted steps: 91965
+--> Minimum of -logLike           : 0.15

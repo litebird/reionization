@@ -95,6 +95,18 @@ PRELIMINARY RUNS
         - the neutrino mass bound degrades a bit w.r.t Litebird+Planck, Mnu < 0.41 eV (95%CL)
         - further details can be seen in input/litebird_50_w_lens_mnu.ini (input) and in chains/litebird_50_w_lensp_mnu/... (output)
 
+* litebird_50_w_lens_mnu_0.7 chains:
+
+    - importance sampling based on litebird_50_w_lens_mnu with fsky=0.7
+
+    - find sigma(tau_reio) = 0.0022 and Mnu < 0.38 eV (95%CL)
+
+* litebird_50_w_lens_mnu_0.8 chains:
+
+    - importance sampling based on litebird_50_w_lens_mnu with fsky=0.8
+
+    - find sigma(tau_reio) = 0.0021 and Mnu < 0.35 eV (95%CL)
+
 * litebird_50_wo_lens likelihood and litebird_50_wo_lens_mnu chains (updated 3.02.2022 with correct fiducial mode including correct fiducial value of z_reio):
 
     - likelihood: the only difference w.r.t. litebird_50_w_lens is the fact that we turn off lensing extraction (LensingExtraction = False)
