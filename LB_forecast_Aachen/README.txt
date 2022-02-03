@@ -115,3 +115,15 @@ PRELIMINARY RUNS
         - after rounding, we get the sigma(tau_reio) = 0.0024
         - the neutrino mass bound degrades a bit w.r.t Litebird+Planck, Mnu < 0.91 eV (95%CL)
         - further details can be seen in input/litebird_50_wo_lens_mnu.ini (input) and in chains/litebird_50_wo_lensp_mnu/... (output)
+
+* litebird_50_wo_lens_mnu_0.7 chains:
+
+    - importance sampling based on litebird_50_wo_lens_mnu with fsky=0.7
+
+    - find sigma(tau_reio) = 0.0023 and Mnu < 0.86 eV (95%CL)
+
+* litebird_50_wo_lens_mnu_0.8 chains:
+
+    - importance sampling based on litebird_50_wo_lens_mnu with fsky=0.8
+
+    - find sigma(tau_reio) = 0.0021 and Mnu < 0.82 eV (95%CL)
