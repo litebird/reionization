@@ -1,4 +1,6 @@
-We post here the files thyat are necessary to reproduce (or compare with) our forecast runs.
+We post here the files that are necessary to reproduce (or compare with) our forecast runs.
+
+PRELIMINARY RUNS
 
 * litebird_planck_v1 likelihood and litebird_planck_v1_lcdm chains (23.11.2021):
 
@@ -78,3 +80,26 @@ We post here the files thyat are necessary to reproduce (or compare with) our fo
         - after rounding, we get the same sigma(tau_reio) = 0.0022
         - the neutrino mass bound, Mnu < 0.81 eV (95%CL), degrades considerably in absence of lensing extraction (it was 0.36 eV with lensing extraction)
         - further details can be seen in input/litebird_wo_lens_mnu.ini (input) and in chains/litebird_wo_lens_mnu/... (output)
+
+"PRODUCTION RUNS" hopefully for the paper:
+
+* litebird_50_w_lens likelihood and litebird_50_w_lens_mnu chains (updated 3.02.2022 with correct fiducial mode including correct fiducial value of z_reio):
+
+    - likelihood: we sketeched a litebird-alone likelihood in the following way:
+        - the LiteBird noise NlEE comes from the simulations at low l, assuming a sensitivity of 6.56 muK*arcmin at intermediate l, assuming a 50 arcmin beam at large l, l_max=1350, and fsky = 0.6
+        - the LiteBird noise NLTT and Nldd comes from the paper 1808.05955, that is, from the file "noise_litebird.dat" of the public MontePython.
+        - note that NlTT does not really matter since we are cosmic variance dominated at low l. Nldd does matter and we will do another test where we remove lensing extraction, for the sake of comparison.
+
+    - model: LambdaCDM with a varying m_ncdm, and thus a total mass Mnu = 3 * m_ncdm
+        - after rounding, we get the sigma(tau_reio) = 0.0024
+        - the neutrino mass bound degrades a bit w.r.t Litebird+Planck, Mnu < 0.41 eV (95%CL)
+        - further details can be seen in input/litebird_50_w_lens_mnu.ini (input) and in chains/litebird_50_w_lensp_mnu/... (output)
+
+* litebird_50_wo_lens likelihood and litebird_50_wo_lens_mnu chains (updated 3.02.2022 with correct fiducial mode including correct fiducial value of z_reio):
+
+    - likelihood: the only difference w.r.t. litebird_50_w_lens is the fact that we turn off lensing extraction (LensingExtraction = False)
+
+    - model: LambdaCDM with a varying m_ncdm, and thus a total mass Mnu = 3 * m_ncdm
+        - after rounding, we get the sigma(tau_reio) = 0.0024
+        - the neutrino mass bound degrades a bit w.r.t Litebird+Planck, Mnu < 0.91 eV (95%CL)
+        - further details can be seen in input/litebird_50_wo_lens_mnu.ini (input) and in chains/litebird_50_wo_lensp_mnu/... (output)
