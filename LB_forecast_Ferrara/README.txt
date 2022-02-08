@@ -27,7 +27,7 @@ Here is a list of the completed runs:
     - likelihood: we sketeched a litebird-alone likelihood in the following way:
         - the LiteBird noise NlEE comes from foregrounds residual from component separation at low l (deconvolved by a 80 arcmin beam), assuming a sensitivity of 6.56 muK*arcmin at intermediate l, assuming a 30 arcmin beam at large l, l_max=1350, and fsky = 0.6
         - the LiteBird noise NLTT and Nldd comes from the paper 1808.05955, that is, from the file "noise_litebird.dat" of the public MontePython.
-        - note that NlTT does not really matter since we are comsic variance dominated at low l. Nldd does matter and we will do another test where we remove lensing extraction, for the sake of comparison.
+        - note that NlTT does not really matter since we are cosmic variance dominated at low l. Nldd does matter and we will do another test where we remove lensing extraction, for the sake of comparison.
 
     - model:  minimal LambdaCDM with the parameters discussed in previous telecons and Mnu fixed to 3*0.02eV
         - we get sigma(tau_reio) = 0.0025 (from getdist,  we actually obtain sigma(tau_reio) = 0.0023)
@@ -35,12 +35,12 @@ Here is a list of the completed runs:
 
 * litebird_w_lens_mnu_fsky60_beam30 likelihood and litebird_w_lens_mnu_fsky60_beam30 chains:
 
-    - likelihood: same likelihood and fiducial model as above
+    - likelihood: same likelihood as above, fiducial: data/litebird_w_lens_mnu_fsky60_beam30.param
 
     - model: LambdaCDM with a varying m_ncdm, and thus a total mass Mnu = 3 * m_ncdm
         - after rounding, we get sigma(tau_reio) = 0.0023 (like for fixed Mnu, analyzing with getdist)
         - the neutrino mass bound degrades a bit w.r.t Litebird+Planck, mnu < 0.129 --> Mnu < 0.39 eV (95%CL)
-        - further details can be seen in input/litebird_w_lens_mnu_fsky60_beam30.param (input) and in chains/litebird_planck_v2_mnu_fsky60_beam30/... (output)
+        - further details can be seen in input/litebird_w_lens_mnu_fsky60_beam30.param (input) and in chains/litebird_w_lens_mnu_fsky60_beam30/... (output)
 
 
 * litebird_w_lens_mnu_fsky60_beam30 likelihood and litebird_w_lens_mnu_fsky70_beam30_import_sampl chains (obtained from the fsky = 0.6 case with importance sampling):
@@ -50,7 +50,7 @@ Here is a list of the completed runs:
     - model: LambdaCDM with a varying m_ncdm, and thus a total mass Mnu = 3 * m_ncdm
         - after rounding, we get sigma(tau_reio) = 0.0022, (from getdist, sigma(tau_reio) = 0.0021, ~7% smaller than the fsky = 0.6 case)
         - the neutrino mass bound degrades a bit w.r.t Litebird+Planck, mnu < 0.12 --> Mnu < 0.36 eV (95%CL)
-        - further details can be seen in input/litebird_w_lens_mnu_fsky60_beam30.param (input) and in chains/litebird_planck_v2_mnu_fsky70_beam30_import_sampl/... (output)
+        - further details can be seen in input/litebird_w_lens_mnu_fsky60_beam30.param (input) and in chains/litebird_w_lens_mnu_fsky70_beam30_import_sampl/... (output)
 	The results on sigma(tau_reio) and Mnu are consistent with the run litebird_w_lens_mnu chains of the Aachen group (Litebird only, fsky = 0.7, beam = 30')
 
 * litebird_w_lens_mnu_fsky60_beam30 likelihood and litebird_w_lens_mnu_fsky80_beam30_import_sampl chains (obtained from the fsky = 0.6 case with importance sampling):
@@ -60,7 +60,34 @@ Here is a list of the completed runs:
     - model: LambdaCDM with a varying m_ncdm, and thus a total mass Mnu = 3 * m_ncdm
         - after rounding, we get sigma(tau_reio) = 0.0020, ~13% smaller than the fsky = 0.6 case
         - the neutrino mass bound is mnu < 0.112 --> Mnu < 0.33 eV like in the case with Litebird+Planck (95%CL)
-        - further details can be seen in input/litebird_w_lens_mnu_fsky60_beam30.param (input) and in chains/litebird_planck_v2_mnu_fsky80_beam30_import_sampl/... (output)
+        - further details can be seen in input/litebird_w_lens_mnu_fsky60_beam30.param (input) and in chains/litebird_w_lens_mnu_fsky80_beam30_import_sampl/... (output)
+
+* litebird_wo_lens_mnu_fsky60_beam30 likelihood and litebird_wo_lens_mnu_fsky60_beam30 chains:
+     - likelihood: the only difference w.r.t. litebird_w_lens_mnu_* is the fact that we turn off lensing extraction (LensingExtraction = False), fiducial: data/litebird_wo_lens_mnu_fsky60_beam30.param
+     - model: LambdaCDM with a varying m_ncdm, and thus a total mass Mnu = 3 * m_ncdm
+         - we get sigma(tau_reio) = 0.0024 
+         - the neutrino mass bound is mnu < 0.295 (95% CL) --> Mnu < 0.88
+         - further details can be seen in input/litebird_wo_lens_mnu_fsky60_beam30.param (input) and in chains/litebird_wo_lens_mnu_fsky60_beam30_import_sampl/... (output)
+
+* litebird_wo_lens_mnu_fsky60_beam30 likelihood and litebird_wo_lens_mnu_fsky70_beam30_import_sampl chains (obtained from the fsky = 0.6 case with importance sampling):
+
+    - likelihood: same likelihood and fiducial model as above
+    - model: LambdaCDM with a varying m_ncdm, and thus a total mass Mnu = 3 * m_ncdm
+        - sigma(tau_reio) = 0.0022
+        - mnu < 0.277 (95% CL) ---> Mnu < 0.83
+        - further details can be seen in input/litebird_wo_lens_mnu_fsky60_beam30.param (input) and in chains/litebird_wo_lens_mnu_fsky70_beam30_import_sampl/... (output)
+
+     The results on sigma(tau_reio) is consistent with the run litebird_wo_lens_mnu chains of the Aachen group (Litebird only, fsky = 0.7, beam = 30'), while Mnu constraint is slightly larger (after rounding, I get mnu < 0.277 with montepython and mnu < 0.273 with getdist. By rounding as mnu < 0.277 I get Mnu < 0.83 instead of 0.81 like the Aachen run)
+
+* litebird_wo_lens_mnu_fsky60_beam30 likelihood and litebird_wo_lens_mnu_fsky80_beam30_import_sampl chains (obtained from the fsky = 0.6 case with importance sampling):
+
+    - likelihood: same likelihood and fiducial model as above
+    - model: LambdaCDM with a varying m_ncdm, and thus a total mass Mnu = 3 * m_ncdm
+        - sigma(tau_reio) = 0.0021
+        - mnu < 0.26 (95% CL) ---> Mnu < 0.78
+        - further details can be seen in input/litebird_wo_lens_mnu_fsky60_beam30.param (input) and in chains/litebird_wo_lens_mnu_fsky80_beam30_import_sampl/... (output)
+
+sigma(tau_reio) constraints are slightly worse in the cases w/o lensing extraction with respect to the corresponding cases w/ lens., while the Mnu constraints degrade much more.
 
 
 (I am also copypasting this comment of Julien on the neutrino parameters used in those runs):
