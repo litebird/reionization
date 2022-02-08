@@ -1,0 +1,77 @@
+#-----CLASS v3.1.1 (branch: master, hash: 8b0722f0d931017b442756643e31bed40afb46f0)-----
+
+#------Experiments to test (separated with commas)-----
+# To see all the available ones, please look in the
+# montepython/likelihoods folder. Every folder there is a valid likelihood to
+# test.
+data.experiments=['litebird_wo_lens_mnu_fsky60_beam30']
+
+#------ Parameter list -------
+# data.parameters[class name] = [mean, min, max, 1-sigma, scale, role]
+# - if min max irrelevant, put to -1 or None (if you want a boundary of -1, use -1.0)
+# - if fixed, put 1-sigma to 0
+# - if scale irrelevant, put to 1, otherwise to the appropriate factor
+# - role is either 'cosmo', 'nuisance' or 'derived'
+
+
+# Cosmological parameters list
+data.parameters['omega_b'] 	= [2.2383,   -1,-1, 0.00015,0.01,'cosmo']
+data.parameters['omega_cdm'] 	= [0.12011,  -1,-1, 0.0014,    1,'cosmo']
+data.parameters['n_s']       	= [0.96605,  -1,-1, 0.004,     1,'cosmo']
+data.parameters['A_s']       	= [2.1005,   -1,-1, 0.03,   1e-9,'cosmo']
+data.parameters['100*theta_s']  = [1.041684, -1,-1, 0.0003,    1,'cosmo']
+data.parameters['m_ncdm']       = [0.02,       0.0, -1, 0.1, 1,'cosmo']
+data.parameters['z_reio']       = [7.68, 3.73, 11.63, 0.79, 1,'cosmo']
+
+# Derived parameter list
+data.parameters['H0']           = [0,       -1, -1, 0,1,  'derived']
+data.parameters['tau_reio']     = [0,       -1, -1, 0,1,  'derived']
+data.parameters['Omega_Lambda'] = [0,       -1, -1, 0,1,  'derived']
+
+# fixed CLASS parameters
+#data.cosmo_arguments['sBBN file'] = data.path['cosmo']+'/external/bbn/sBBN.dat'
+# massive neutrinos:
+data.cosmo_arguments['N_ncdm'] = 1
+#data.cosmo_arguments['m_ncdm'] = 0.02
+data.cosmo_arguments['T_ncdm'] = 0.71611
+data.cosmo_arguments['deg_ncdm'] = 3
+# massless neutrinos:
+data.cosmo_arguments['N_ur'] = 0.00441
+# non-linear corrections
+#data.cosmo_arguments['non linear'] = 'halofit'
+
+
+#------ Mcmc parameters ----
+# Number of steps taken, by default (overwritten by the -N command)
+data.N=10
+# Number of accepted steps before writing to file the chain. Larger means less
+# access to disc, but this is not so much time consuming.
+data.write_step=5
+
+
+#-----Likelihood-litebird_wo_lens_mnu_fsky60_beam30-----
+litebird_wo_lens_mnu_fsky60_beam30.data_directory = '/home/sgiardiello/montepython/montepython_public/data'
+litebird_wo_lens_mnu_fsky60_beam30.fiducial_file = 'litebird_wo_lens_mnu_fsky60_beam30_fiducial.dat'
+litebird_wo_lens_mnu_fsky60_beam30.l_min = 2
+litebird_wo_lens_mnu_fsky60_beam30.l_max = 1350
+litebird_wo_lens_mnu_fsky60_beam30.f_sky = 0.6
+litebird_wo_lens_mnu_fsky60_beam30.Bmodes = False
+litebird_wo_lens_mnu_fsky60_beam30.delensing = False
+litebird_wo_lens_mnu_fsky60_beam30.noise_from_file = True
+litebird_wo_lens_mnu_fsky60_beam30.noise_file = 'noise_litebird_alone_beam30.dat'
+litebird_wo_lens_mnu_fsky60_beam30.LensingExtraction = False
+litebird_wo_lens_mnu_fsky60_beam30.neglect_TD = True
+litebird_wo_lens_mnu_fsky60_beam30.unlensed_clTTTEEE = False
+litebird_wo_lens_mnu_fsky60_beam30.ExcludeTTTEEE = False
+
+
+#-----------Cosmological-arguments---------
+data.cosmo_arguments.update({'N_ncdm': 1, 'T_ncdm': 0.71611, 'deg_ncdm': 3, 'N_ur': 0.00441, 'lensing': 'yes', 'output': 'tCl lCl pCl', 'l_max_scalars': 1350})
+
+
+#--------Default-Configuration------
+data.path['root']	= '/home/sgiardiello/montepython/montepython_public'
+data.path['MontePython']	= '/home/sgiardiello/montepython/montepython_public/montepython'
+data.path['data']	= '/home/sgiardiello/montepython/montepython_public/data'
+data.path['cosmo']	= '/home/sgiardiello/class_public'
+data.path['clik']	= '/home/sgiardiello/cobaya_packages/code/planck/code/plc_3.0/plc-3.1'
