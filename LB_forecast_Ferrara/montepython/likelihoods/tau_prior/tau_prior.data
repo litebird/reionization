@@ -1,0 +1,5 @@
+#Values of tau derived from the run litebird only, lcdm+mnu,
+#TTTEEE+lensing, beam = 30', fsky = 0.6 (tau is the fiducial value used
+#in the run, sigma is coming from the run)
+tau_prior.tau    = 0.0543
+tau_prior.sigma  = 2.3287e-03
