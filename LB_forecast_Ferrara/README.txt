@@ -102,6 +102,15 @@ sigma(tau_reio) constraints are slightly worse in the cases w/o lensing extracti
         - further details can be seen in input/litebird_TT_w_lens_tau_prior_mnu_fsky60_beam30.param (input) and in chains/litebird_TT_w_lens_tau_prior_mnu_fsky60_beam30/... (output)
  
 
+* litebird_TT_wo_lens_tau_prior_mnu_fsky60_beam30 and tau_prior likelihoods and litebird_TT_wo_lens_tau_prior_mnu_fsky60_beam30 chains:
+
+    - likelihoods: same fiducial model as before, setting litebird_TT_wo_lens_tau_prior_mnu_fsky60_beam30.OnlyTT = True to select only temperature; also litebird_TT...beam30.LensingExtraction = False. The tau_prior likelihood sets a gaussian prior on tau with mean = fiducial value used for tau (0.0543) and as sigma the one from the run litebird_wo_lens_mnu_fsky60_beam30 (0.0024052)
+
+    - model: LambdaCDM with a varying m_ncdm, and thus a total mass Mnu = 3 * m_ncdm
+        - sigma(tau_reio) = 0.0025 (with getdist, 68% limit is 0.0024)
+        - mnu < 0.458 (95% CL) ---> Mnu < 1.37
+        - further details can be seen in input/litebird_TT_wo_lens_tau_prior_mnu_fsky60_beam30.param (input) and in chains/litebird_TT_wo_lens_tau_prior_mnu_fsky60_beam30/... (output)
+
 
 (I am also copypasting this comment of Julien on the neutrino parameters used in those runs):
 the meaning of all CLASS input parameters is explained at length in the file explanatory.ini which comes with any distribution of CLASS. In this case: T_ncdm is the neutrino-to-photon temperature ratio. T_ncdm = 0.71611 is the value that is needed in order to get [M_nu / omega_nu] = 93.14 eV, which is the prediction of  the most precise studies of neutrino decoupling. N_ur means “number of ultra-relativistic species”, and you may see it just as the number of massless neutrino species. If the neutrino phase-space distributions predicted by neutrino decoupling were exactly thermal (Fermi-Dirac) distributions, we would just need to take deg_ncdm=3 species of neutrinos  with a temperature set by T_ncdm=0.71611 and with the same mass, then, N_ur=0, and we would be done. However, precise studies of neutrinos decoupling predict deviations from a pure thermal distribution. In order to mimick these distortions, it has been shown that we can introduce a small fake density of relativistic species on top  of the massive ones. The advantage of setting T_ncdm = 0.71611 for the 3 massive neutrinos, and on top of this, N_ur=0.00441, is that you will then get simultaneously [M_nu / omega_nu] = 93.14 eV AND N_eff=3.044, wich are precisely the predictions of the neutrino decoupling model.
