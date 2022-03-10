@@ -1,0 +1,10 @@
+name = noise_litebird_b50
+all_l_exact = T
+Do_Mock = F
+mock_ncmbcls =     5
+has_pol = T
+CMBCl_theo = /home/zi440042/liteBIRD/noise/futurcmb/fiducials/liteBIRD_cl.dat
+CMBLensCl_theo = /home/zi440042/liteBIRD/noise/futurcmb/fiducials/liteBIRD_cl_lensed.dat
+all_l_lmax =  1350
+all_l_lmin =     2
+all_l_file = /home/zi440042/liteBIRD/noise/futurcmb/output/noise_litebird_b50.dat
