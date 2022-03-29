@@ -1,0 +1,7 @@
+2022-03-17_300000_imp_sampl__3.txt	  Number of steps:10505	 Steps accepted:7075	 acc = 0.67	min(-loglike) = 0.14
+2022-03-17_300000_imp_sampl__1.txt	  Number of steps:9441	 Steps accepted:8280	 acc = 0.88	min(-loglike) = 0.11
+2022-03-17_300000_imp_sampl__2.txt	  Number of steps:10547	 Steps accepted:7080	 acc = 0.67	min(-loglike) = 0.35
+2022-03-17_300000_imp_sampl__4.txt	  Number of steps:10348	 Steps accepted:6975	 acc = 0.67	min(-loglike) = 0.30
+--> Total    number    of    steps: 40842
+--> Total number of accepted steps: 29410
+--> Minimum of -logLike           : 0.11
