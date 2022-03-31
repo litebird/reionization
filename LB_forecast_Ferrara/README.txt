@@ -171,6 +171,16 @@ sigma(tau_reio) constraints are slightly worse in the cases w/o lensing extracti
         - mnu < 0.2566 ~ 0.26 (95% CL) ---> Mnu < 0.77
         - further details can be seen in input/litebird_wo_lens_mnu_fsky60_beam30.param (input) and in chains/litebird_wo_lens_mnu_fsky80_beam30_import_sampl/... (output)
 
+* litebird_TT_w_lens_tau_prior_mnu_fsky60_beam30_new_noise and tau_prior likelihoods and litebird_TT_w_lens_tau_prior_mnu_fsky60_beam30_new_noise chains:
+
+    - likelihoods: same fiducial model as before, setting litebird_TT_w_lens_tau_prior_mnu_fsky60_beam30_new_noise.OnlyTT = True to select only temperature; also litebird_TT...beam30_new_noise.LensingExtraction = False. The tau_prior likelihood sets a gaussian prior on tau with mean = fiducial value used for tau (0.0543) and as sigma the one from the run litebird_w_lens_mnu_fsky60_beam30_new_noise (0.0023584)
+
+    - model: LambdaCDM with a varying m_ncdm, and thus a total mass Mnu = 3 * m_ncdm
+        - sigma(tau_reio) = 2.4309e-03 ~ 0.0024
+        - mnu < 2.9511e-01 ~ 0.30 (95% CL) ---> Mnu < 0.90
+        - further details can be seen in input/litebird_TT_w_lens_tau_prior_mnu_fsky60_beam30_new_noise.param (input) and in chains/litebird_TT_w_lens_tau_prior_mnu_fsky60_beam30_new_noise/... (output)
+
+
 
 
 (I am also copypasting this comment of Julien on the neutrino parameters used in those runs):
