@@ -1,0 +1,3 @@
+The fiducial spectra for the models A and B (different reionization history) have been generated with CLASS as adimensional D_ls. Also, they have been generated with the CLASS default settings on the neutrino masses and N_eff (massless neutrino cosmology). We stick to the default CLASS settings also in the montepython runs.
+
+To convert the CLASS spectra to the montepython fiducials, we have converted the D_ls in C_ls, made them dimensional by multiplying the TT TE EE spectra by T_cmb^2 and TP by T_cmb (T_cmb [muK] = 2.7255*1e06). Then we converted PP and TP spectra into DD and TD ones, converted the noise N_lDD from D_l into C_l and summed the noise to the spectra (noise from 'noise_litebird_only_b30.dat', so with a beam of 30').
