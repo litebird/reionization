@@ -1,0 +1,6 @@
+[submodule "LB_forecast_APC/montepython_public"]
+	path = LB_forecast_APC/montepython_public
+	url = git@github.com:wangwbnu/montepython_public.git
+[submodule "LB_forecast_APC/class_public"]
+	path = LB_forecast_APC/class_public
+	url = git@github.com:wangwbnu/class_public.git
