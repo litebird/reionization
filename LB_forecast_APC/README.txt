@@ -1,4 +1,4 @@
 * A modified version of class and montepython code (flexknot included)
-  - see an example respectly class_public/explanatory.ini and montepython/input/example_flexknot.param
+  - please find an example respectively class_public/explanatory.ini and montepython/input/example_flexknot.param
   
-* chains will ba updated in the future
+* chains and analysis will be updated in the future
