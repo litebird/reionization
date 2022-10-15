@@ -3,20 +3,28 @@
 # Sabarish Venkartaramani, Julien lesgourgues, 10.22
 
 import numpy as np
+from math import pi
 
 ##############################################################################
+#
 # input files:
-fiducial_wo_noise = 'modelA/model_A_cl_lensed.dat'
+#fiducial_wo_noise = 'modelA/model_A_cl_lensed.dat'
+fiducial_wo_noise = 'modelB/model_B_cl_lensed.dat'
 noise = '../LB_Nldd_from_FuturCMB/noise-for-mcmc/noise_litebird_only_b50.dat'
+#
 # output files:
-fiducial_w_noise = 'modelA/cl_modelA_w_noise_b50.dat'
-fiducial_header = "# model A with unkown parameters (blind test) plus noise, in format of MP fiducial files"
+#fiducial_w_noise = 'modelA/cl_modelA_w_noise_b50.dat'
+fiducial_w_noise = 'modelB/cl_modelB_w_noise_b50.dat'
+fiducial_header = "# model B with unkown parameters (blind test) plus noise, in format of MP fiducial files"
+#
 ##############################################################################
 
 cl_wo_noise = np.loadtxt(fiducial_wo_noise)
 
 # T_cmb in muK
 T_cmb = 2.7255e6
+
+twopi=2.*pi
 
 clll = cl_wo_noise[:,0]
 clTT = cl_wo_noise[:,1]
@@ -34,12 +42,12 @@ l_size_fid = len(clll)
 
 # convert Cl's of temp./pol. from dimensionless to [muK]**2
 # convert to Cldd
-clTT *= T_cmb**2
-clEE *= T_cmb**2
-clTE *= T_cmb**2
-clBB *= T_cmb**2
-cldd = clll * (clll+1) * clpp
-clTd = T_cmb * np.sqrt(clll * (clll+1)) * clTp
+clTT *= T_cmb**2 * twopi / (clll * (clll+1))
+clEE *= T_cmb**2 * twopi / (clll * (clll+1))
+clTE *= T_cmb**2 * twopi / (clll * (clll+1))
+clBB *= T_cmb**2 * twopi / (clll * (clll+1))
+cldd = clll * (clll+1) * clpp #TBC!!
+clTd = T_cmb * np.sqrt(clll * (clll+1)) * clTp #TBC!
 
 nl = np.loadtxt(noise)
 
@@ -49,7 +57,7 @@ nlPP = nl[:,2]
 nldd = nl[:,3]
 
 # convert to Nldd
-nldd *= 2. * np.pi / nlll / (nlll+1.)
+nldd *= twopi / nlll / (nlll+1.) #TBC!
 
 print ('-> noise input:',noise)
 print ('   with: l_min=',nlll[0],' l_max=',nlll[-1],' number of ls=',len(nlll))
