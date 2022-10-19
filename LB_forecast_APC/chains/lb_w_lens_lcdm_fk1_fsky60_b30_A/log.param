@@ -1,0 +1,89 @@
+#-----CLASS v3.2.0 (branch: master, hash: e90c276df70e5417ed6a3a091d409ab8f8a1ad5a)-----
+
+#------Experiments to test (separated with commas)-----
+# To see all the available ones, please look in the
+# montepython/likelihoods folder. Every folder there is a valid likelihood to
+# test.
+data.experiments=['lb_w_lens_lcdm_tanh_deltaz_fsky60_b30_A_onlyEE']
+
+#------ Parameter list -------
+# data.parameters[class name] = [mean, min, max, 1-sigma, scale, role]
+# - if min max irrelevant, put to -1 or None (if you want a boundary of -1, use -1.0)
+# - if fixed, put 1-sigma to 0
+# - if scale irrelevant, put to 1, otherwise to the appropriate factor
+# - role is either 'cosmo', 'nuisance' or 'derived'
+
+
+# Cosmological parameters list
+data.parameters['omega_b'] 	    = [2.233,   -1,-1, 0, 0.01,'cosmo']
+data.parameters['omega_cdm'] 	= [0.1198,  -1,-1, 0,    1,'cosmo']
+data.parameters['n_s']       	= [0.9652,  -1,-1, 0,    1,'cosmo']
+data.parameters['h']            = [0.6737,  -1,-1, 0,    1,'cosmo']
+data.parameters['A_s']       	= [2.1005,  -1,-1, 0.03,1e-9,'cosmo']
+
+# flexknot nodes
+# fixed first knot, 1-sigma is put to 0
+data.parameters['reio_flexknot_z__1']    	= [6,   6, 30,   0, 1,   'cosmo']
+data.parameters['reio_flexknot_xe__1']    	= [0.0, 0, -1,   0, 1,   'cosmo']
+# varing knot (with __i ending i in [1,9], must be continues, must match the value of 'reio_flexknot_num')
+data.parameters['reio_flexknot_z__2']    	= [8,   6, 30, 1.0, 1,   'cosmo']
+data.parameters['reio_flexknot_xe__2']    	= [0.8, 0, -1, 0.1, 1,   'cosmo']
+#fixed last knot, 1-sigma is put to 0
+data.parameters['reio_flexknot_z__3']    	= [30,  6, 30,   0, 1,   'cosmo']
+data.parameters['reio_flexknot_xe__3']    	= [0.0, 0, -1,   0, 1,   'cosmo']
+
+# Derived parameter list
+data.parameters['100*theta_s']  = [0, -1,-1, 0,    1,'derived']
+data.parameters['tau_reio']       = [0,       -1, -1, 0,1,  'derived']
+data.parameters['Omega_Lambda'] = [0,       -1, -1, 0,1,  'derived']
+data.cosmo_arguments['reio_parametrization'] = 'reio_flexknot'
+data.cosmo_arguments['reio_flexknot_num'] = 3
+
+# fixed CLASS parameters
+#data.cosmo_arguments['sBBN file'] = data.path['cosmo']+'/external/bbn/sBBN.dat'
+# massive neutrinos:
+data.cosmo_arguments['N_ncdm'] = 1
+data.cosmo_arguments['m_ncdm'] = 0.02
+data.cosmo_arguments['T_ncdm'] = 0.71611
+data.cosmo_arguments['deg_ncdm'] = 3
+# massless neutrinos:
+data.cosmo_arguments['N_ur'] = 0.00441
+# non-linear corrections
+#data.cosmo_arguments['non linear'] = 'halofit'
+
+
+#------ Mcmc parameters ----
+# Number of steps taken, by default (overwritten by the -N command)
+data.N=10
+# Number of accepted steps before writing to file the chain. Larger means less
+# access to disc, but this is not so much time consuming.
+data.write_step=5
+
+
+#-----Likelihood-lb_w_lens_lcdm_tanh_deltaz_fsky60_b30_A_onlyEE-----
+lb_w_lens_lcdm_tanh_deltaz_fsky60_b30_A_onlyEE.data_directory = '/pbs/home/w/wwang/software/montepython_public/data'
+lb_w_lens_lcdm_tanh_deltaz_fsky60_b30_A_onlyEE.fiducial_file = 'model_A_cl_lensed_to_montepy_b30.dat'
+lb_w_lens_lcdm_tanh_deltaz_fsky60_b30_A_onlyEE.l_min = 2
+lb_w_lens_lcdm_tanh_deltaz_fsky60_b30_A_onlyEE.l_max = 30
+lb_w_lens_lcdm_tanh_deltaz_fsky60_b30_A_onlyEE.f_sky = 0.6
+lb_w_lens_lcdm_tanh_deltaz_fsky60_b30_A_onlyEE.Bmodes = False
+lb_w_lens_lcdm_tanh_deltaz_fsky60_b30_A_onlyEE.delensing = False
+lb_w_lens_lcdm_tanh_deltaz_fsky60_b30_A_onlyEE.noise_from_file = True
+lb_w_lens_lcdm_tanh_deltaz_fsky60_b30_A_onlyEE.noise_file = 'noise_litebird_only_b30.dat'
+lb_w_lens_lcdm_tanh_deltaz_fsky60_b30_A_onlyEE.LensingExtraction = True
+lb_w_lens_lcdm_tanh_deltaz_fsky60_b30_A_onlyEE.neglect_TD = True
+lb_w_lens_lcdm_tanh_deltaz_fsky60_b30_A_onlyEE.unlensed_clTTTEEE = False
+lb_w_lens_lcdm_tanh_deltaz_fsky60_b30_A_onlyEE.ExcludeTTTEEE = False
+lb_w_lens_lcdm_tanh_deltaz_fsky60_b30_A_onlyEE.OnlyEE = True
+
+
+#-----------Cosmological-arguments---------
+data.cosmo_arguments.update({'reio_parametrization': 'reio_flexknot', 'reio_flexknot_num': 3, 'N_ncdm': 1, 'm_ncdm': 0.02, 'T_ncdm': 0.71611, 'deg_ncdm': 3, 'N_ur': 0.00441, 'lensing': 'yes', 'output': 'tCl lCl pCl', 'l_max_scalars': 30})
+
+
+#--------Default-Configuration------
+data.path['root']	= '/pbs/home/w/wwang/software/montepython_public'
+data.path['MontePython']	= '/pbs/home/w/wwang/software/montepython_public/montepython'
+data.path['data']	= '/pbs/home/w/wwang/software/montepython_public/data'
+data.path['cosmo']	= '/pbs/home/w/wwang/software/class_public'
+data.path['clik']	= '/pbs/home/w/wwang/software/planck/code/plc_3.0/plc-3.01'

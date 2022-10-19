@@ -1,0 +1,7 @@
+2022-10-15_200000__3.txt	  Number of steps:72905	 Steps accepted:11095	 acc = 0.15	min(-loglike) = -5.54
+2022-10-15_200000__2.txt	  Number of steps:105240	 Steps accepted:16290	 acc = 0.15	min(-loglike) = -5.55
+2022-10-15_200000__4.txt	  Number of steps:84254	 Steps accepted:12740	 acc = 0.15	min(-loglike) = -5.54
+2022-10-15_200000__1.txt	  Number of steps:89743	 Steps accepted:13645	 acc = 0.15	min(-loglike) = -5.53
+--> Total    number    of    steps: 352142
+--> Total number of accepted steps: 53770
+--> Minimum of -logLike           : -5.55
