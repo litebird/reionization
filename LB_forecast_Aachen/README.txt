@@ -127,3 +127,15 @@ PRELIMINARY RUNS
     - importance sampling based on litebird_50_wo_lens_mnu with fsky=0.8
 
     - find sigma(tau_reio) = 0.0021 and Mnu < 0.82 eV (95%CL)
+
+* litebird_50_EE_only_modelA chains:
+
+    - uses litebird-only likelihood with C_l^EE only and 50' resolution, fiducial model A, and tanh reionisation
+
+    - find tau_reio = 0.06056 - 0.00028 + 0.00027
+
+* litebird_50_EE_only_modelB chains:
+
+    - uses litebird-only likelihood with C_l^EE only and 50' resolution, fiducial model B, and tanh reionisation
+
+    - find tau_reio = 0.05955 - 0.00028 + 0.00026
