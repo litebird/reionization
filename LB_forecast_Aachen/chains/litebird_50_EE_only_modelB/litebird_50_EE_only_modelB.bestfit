@@ -1,2 +1,2 @@
-#              A_s,           z_reio,         tau_reio,   exp_m_2_tau_As
- 2.068174e-09	 8.276776e+00	 6.020368e-02	 1.833559e-09	
+#              A_s,           z_reio,         tau_reio,   exp_m_2_tau_As, $10^9 \exp(-2 \tau_\mathrm{reio}) A_s$
+ 2.068174e-09	 8.276776e+00	 6.020368e-02	 1.833559e-09	 1.833559e+00	
