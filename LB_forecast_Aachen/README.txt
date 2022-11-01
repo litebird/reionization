@@ -132,10 +132,34 @@ PRELIMINARY RUNS
 
     - uses litebird-only likelihood with C_l^EE only and 50' resolution, fiducial model A, and tanh reionisation
 
-    - find tau_reio = 0.06056 - 0.00028 + 0.00027
+    - find tau_reio = 6.0514e-02  -3.4366e-03  3.2113e-03
+           z_reio   = 8.3046e+00  -3.3779e-01  3.2046e-01
+           A_s      = 2.1345e+00  -1.6523e-01  +1.4395e-01
 
 * litebird_50_EE_only_modelB chains:
 
     - uses litebird-only likelihood with C_l^EE only and 50' resolution, fiducial model B, and tanh reionisation
 
+    - find tau_reio =
+           z_reio   =
+           A_s      =
+
+* litebird_50_EE_only_modelA_deltaz chains:
+
+    - uses litebird-only likelihood with C_l^EE only and 50' resolution, fiducial model A, and tanh reionisation
+      with a free reionization_width = Delta z in range [0.02 : 4]
+
+    - find tau_reio = 0.06056 - 0.00028 + 0.00027
+           z_reio   =
+           A_s      =
+           Delta z  = unconstrained
+
+* litebird_50_EE_only_modelB_deltaz chains:
+
+    - uses litebird-only likelihood with C_l^EE only and 50' resolution, fiducial model B, and tanh reionisation
+      with a free reionization_width = Delta z in range [0.02 : 4]
+
     - find tau_reio = 0.05955 - 0.00028 + 0.00026
+           z_reio   =
+           A_s      =
+           Delta z  = unconstrained
