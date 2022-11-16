@@ -1,0 +1,76 @@
+#-----CLASS v3.2.0 (branch: master, hash: aa92943e4ab86b56970953589b4897adf2bd0f99)-----
+
+#------Experiments to test (separated with commas)-----
+# To see all the available ones, please look in the
+# montepython/likelihoods folder. Every folder there is a valid likelihood to
+# test.
+data.experiments=['lb_EE_lcdm_tanh_deltaz_fsky65_b30_B']
+
+#------ Parameter list -------
+# data.parameters[class name] = [mean, min, max, 1-sigma, scale, role]
+# - if min max irrelevant, put to -1 or None (if you want a boundary of -1, use -1.0)
+# - if fixed, put 1-sigma to 0
+# - if scale irrelevant, put to 1, otherwise to the appropriate factor
+# - role is either 'cosmo', 'nuisance' or 'derived'
+
+
+# Cosmological parameters list
+data.parameters['A_s']       	      = [2.1005,   -1,    -1, 0.03, 1e-9,'cosmo']
+data.parameters['z_reio']             = [  7.68, 3.73, 11.63, 0.79,    1,'cosmo']
+data.parameters['reionization_width'] = [   0.5, 0.02,    -1,  0.2,    1,'cosmo']
+
+# Derived parameter list
+data.parameters['tau_reio']     = [0,       -1, -1, 0,1,  'derived']
+
+# fixed CLASS parameters
+#data.cosmo_arguments['sBBN file'] = data.path['cosmo']+'/external/bbn/sBBN.dat'
+# massive neutrinos:
+data.cosmo_arguments['omega_b'] = 0.02233
+data.cosmo_arguments['omega_cdm'] = 0.1198
+data.cosmo_arguments['n_s'] = 0.9652
+data.cosmo_arguments['H0'] = 67.37
+data.cosmo_arguments['N_ncdm'] = 1
+data.cosmo_arguments['m_ncdm'] = 0.02
+data.cosmo_arguments['T_ncdm'] = 0.71611
+data.cosmo_arguments['deg_ncdm'] = 3
+data.cosmo_arguments['reionization_z_start_max'] = 500
+# massless neutrinos:
+data.cosmo_arguments['N_ur'] = 0.00441
+# non-linear corrections
+#data.cosmo_arguments['non linear'] = 'halofit'
+
+
+#------ Mcmc parameters ----
+# Number of steps taken, by default (overwritten by the -N command)
+data.N=10
+# Number of accepted steps before writing to file the chain. Larger means less
+# access to disc, but this is not so much time consuming.
+data.write_step=5
+
+
+#-----Likelihood-lb_EE_lcdm_tanh_deltaz_fsky65_b30_B-----
+lb_EE_lcdm_tanh_deltaz_fsky65_b30_B.data_directory = '/marconi_work/INF22_indark/nraffuzz/montepython_public/data'
+lb_EE_lcdm_tanh_deltaz_fsky65_b30_B.fiducial_file = 'model_B_cl_lensed_to_montepy_b30.dat'
+lb_EE_lcdm_tanh_deltaz_fsky65_b30_B.l_min = 2
+lb_EE_lcdm_tanh_deltaz_fsky65_b30_B.l_max = 30
+lb_EE_lcdm_tanh_deltaz_fsky65_b30_B.f_sky = 0.65
+lb_EE_lcdm_tanh_deltaz_fsky65_b30_B.Bmodes = False
+lb_EE_lcdm_tanh_deltaz_fsky65_b30_B.delensing = False
+lb_EE_lcdm_tanh_deltaz_fsky65_b30_B.noise_from_file = True
+lb_EE_lcdm_tanh_deltaz_fsky65_b30_B.noise_file = 'noise_litebird_only_b30.dat'
+lb_EE_lcdm_tanh_deltaz_fsky65_b30_B.LensingExtraction = False
+lb_EE_lcdm_tanh_deltaz_fsky65_b30_B.neglect_TD = True
+lb_EE_lcdm_tanh_deltaz_fsky65_b30_B.unlensed_clTTTEEE = False
+lb_EE_lcdm_tanh_deltaz_fsky65_b30_B.ExcludeTTTEEE = False
+lb_EE_lcdm_tanh_deltaz_fsky65_b30_B.OnlyEE = True
+
+
+#-----------Cosmological-arguments---------
+data.cosmo_arguments.update({'omega_b': 0.02233, 'omega_cdm': 0.1198, 'n_s': 0.9652, 'H0': 67.37, 'N_ncdm': 1, 'm_ncdm': 0.02, 'T_ncdm': 0.71611, 'deg_ncdm': 3, 'reionization_z_start_max': 500, 'N_ur': 0.00441, 'lensing': 'yes', 'output': 'tCl lCl pCl', 'l_max_scalars': 30})
+
+
+#--------Default-Configuration------
+data.path['root']	= '/marconi_work/INF22_indark/nraffuzz/montepython_public'
+data.path['MontePython']	= '/marconi_work/INF22_indark/nraffuzz/montepython_public/montepython'
+data.path['data']	= '/marconi_work/INF22_indark/nraffuzz/montepython_public/data'
+data.path['cosmo']	= '/marconi_work/INF22_indark/nraffuzz/class_public'
