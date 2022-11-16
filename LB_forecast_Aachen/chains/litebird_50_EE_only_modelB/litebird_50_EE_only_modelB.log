@@ -1,12 +1,12 @@
-2022-10-15_5000__8.txt	  Number of steps:5000	 Steps accepted:1657	 acc = 0.33	min(-loglike) = 68.46
-2022-10-15_5000__7.txt	  Number of steps:5000	 Steps accepted:1685	 acc = 0.34	min(-loglike) = 68.46
-2022-10-15_5000__3.txt	  Number of steps:5000	 Steps accepted:1695	 acc = 0.34	min(-loglike) = 68.46
-2022-10-15_10__1.txt	  Number of steps:10	 Steps accepted:3	 acc = 0.3	min(-loglike) = 69.30
-2022-10-15_5000__6.txt	  Number of steps:5000	 Steps accepted:1664	 acc = 0.33	min(-loglike) = 68.46
-2022-10-15_5000__5.txt	  Number of steps:5000	 Steps accepted:1619	 acc = 0.32	min(-loglike) = 68.46
-2022-10-15_5000__1.txt	  Number of steps:5000	 Steps accepted:1639	 acc = 0.33	min(-loglike) = 68.46
-2022-10-15_5000__4.txt	  Number of steps:5000	 Steps accepted:1680	 acc = 0.34	min(-loglike) = 68.46
-2022-10-15_5000__2.txt	  Number of steps:5000	 Steps accepted:1712	 acc = 0.34	min(-loglike) = 68.46
---> Total    number    of    steps: 40010
---> Total number of accepted steps: 13354
---> Minimum of -logLike           : 68.46
+2022-11-01_3000__4.txt	  Number of steps:3000	 Steps accepted:939	 acc = 0.31	min(-loglike) = 0.36
+2022-11-01_3000__1.txt	  Number of steps:3000	 Steps accepted:1037	 acc = 0.35	min(-loglike) = 0.36
+2022-11-01_3000__3.txt	  Number of steps:3000	 Steps accepted:1000	 acc = 0.33	min(-loglike) = 0.36
+2022-11-01_3000__6.txt	  Number of steps:3000	 Steps accepted:1002	 acc = 0.33	min(-loglike) = 0.36
+2022-11-01_3000__2.txt	  Number of steps:3000	 Steps accepted:984	 acc = 0.33	min(-loglike) = 0.36
+2022-11-01_3000__5.txt	  Number of steps:3000	 Steps accepted:1023	 acc = 0.34	min(-loglike) = 0.36
+2022-11-01_3000__8.txt	  Number of steps:3000	 Steps accepted:992	 acc = 0.33	min(-loglike) = 0.36
+2022-11-01_1__1.txt	  Number of steps:1	 Steps accepted:1	 acc = 1	min(-loglike) = 19.66
+2022-11-01_3000__7.txt	  Number of steps:3000	 Steps accepted:1011	 acc = 0.34	min(-loglike) = 0.36
+--> Total    number    of    steps: 24001
+--> Total number of accepted steps: 7989
+--> Minimum of -logLike           : 0.36
