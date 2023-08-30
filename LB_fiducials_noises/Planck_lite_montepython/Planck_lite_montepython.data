@@ -1,0 +1,22 @@
+Planck_lite_montepython.l_min = 2
+
+Planck_lite_montepython.l_max = 2508
+
+Planck_lite_montepython.ell_cut_TT = 2
+Planck_lite_montepython.ell_cut_TE = 2
+Planck_lite_montepython.ell_cut_EE = 2
+
+Planck_lite_montepython.T_cmb = 2.7255 
+
+Planck_lite_montepython.data_directory = data.path['data']
+
+Planck_lite_montepython.fiducial_file = 'model_A_lmax3000_cl_lensed.dat'
+
+Planck_lite_montepython.planck_bin_file = 'noise_planck_bin_ref.dat'
+
+Planck_lite_montepython.cov_file = 'noise_planck_lite.dat'
+
+Planck_lite_montepython.LensingExtraction = False
+Planck_lite_montepython.neglect_TD = True
+Planck_lite_montepython.unlensed_clTTTEEE = False
+
