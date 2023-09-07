@@ -22,19 +22,10 @@ class Planck_lite_montepython(Likelihood):
             raise io_mp.LikelihoodError("For reading covariance from file, you must provide cov_file")
 
         try:
-            self.ell_cut_TT
+            self.ell_cut
         except:
-            raise io_mp.LikelihoodError("you must provide ell_cut_TT")
+            raise io_mp.LikelihoodError("you must provide ell_cut")
 
-        try:
-            self.ell_cut_TE
-        except:
-            raise io_mp.LikelihoodError("you must provide ell_cut_TE")
-        
-        try:
-            self.ell_cut_EE
-        except:
-            raise io_mp.LikelihoodError("you must provide ell_cut_EE")
         
         try:
             self.T_cmb
@@ -46,9 +37,9 @@ class Planck_lite_montepython(Likelihood):
         # Read Planck lite bin centers
             av = np.loadtxt(os.path.join(
                     self.data_directory, self.planck_bin_file))
-            ltt = av[:215]
-            lte = av[215:414]
-            lee = av[414:]
+            ltt = av[:214]    #last bin of planck dropped, we stay below ell = 2500
+            lte = av[214:413]
+            lee = av[413:]
 
             # Deduce Planck lite ell bins from centers, and keep only those above ell_cut
             ixs_ells = []
@@ -57,7 +48,7 @@ class Planck_lite_montepython(Likelihood):
             start_ell = 30
             for i, mid_ell in enumerate(ltt):
                 end_ell = 2 * int(mid_ell) - start_ell
-                if start_ell >= self.ell_cut_TT:
+                if start_ell >= self.ell_cut:
                     ell_bins_tt.append(list(range(start_ell, end_ell + 1)))
                     ixs_ells.append(i)
                 start_ell = end_ell + 1
@@ -66,7 +57,7 @@ class Planck_lite_montepython(Likelihood):
             start_ell = 30
             for i, mid_ell in enumerate(lte):
                 end_ell = 2 * int(mid_ell) - start_ell
-                if start_ell >= self.ell_cut_TE:
+                if start_ell >= self.ell_cut:
                     ell_bins_te.append(list(range(start_ell, end_ell + 1)))
                     ixs_ells.append(len(ltt) + i)
                 start_ell = end_ell + 1
@@ -75,7 +66,7 @@ class Planck_lite_montepython(Likelihood):
             start_ell = 30
             for i, mid_ell in enumerate(lee):
                 end_ell = 2 * int(mid_ell) - start_ell
-                if start_ell >= self.ell_cut_EE:
+                if start_ell >= self.ell_cut:
                     ell_bins_ee.append(list(range(start_ell, end_ell + 1)))
                     ixs_ells.append(len(ltt) + len(lte) + i)
                 start_ell = end_ell + 1
@@ -83,9 +74,9 @@ class Planck_lite_montepython(Likelihood):
             # Derive weight matrices for binning Cells
             n_bins_tt, n_bins_te, n_bins_ee = len(ell_bins_tt), len(ell_bins_te), len(ell_bins_ee)
             n_bins_tot = n_bins_tt + n_bins_te + n_bins_ee
-            self.weights_tt = np.zeros((2509, n_bins_tt))  #np.zeros((2509, n_bins_tt))
-            self.weights_te = np.zeros((2509, n_bins_te))
-            self.weights_ee = np.zeros((2509, n_bins_ee))
+            self.weights_tt = np.zeros((2476, n_bins_tt))  #np.zeros((2509, n_bins_tt)) we dropped the bin [2476,2508]
+            self.weights_te = np.zeros((2476, n_bins_te))
+            self.weights_ee = np.zeros((2476, n_bins_ee))
             for i, ell_bins in enumerate(ell_bins_tt):
                 self.weights_tt[ell_bins, i] = 1. / len(ell_bins)
             for i, ell_bins in enumerate(ell_bins_te):
@@ -147,7 +138,7 @@ class Planck_lite_montepython(Likelihood):
 
         # deal with fiducial model:
         # If the file exists, initialize the fiducial values
-        self.Cl_fid = np.zeros((numCls, 2509), 'float64')
+        self.Cl_fid = np.zeros((numCls, 2476), 'float64')
         self.fid_values_exist = False
         if os.path.exists(os.path.join(
                 self.data_directory, self.fiducial_file)):
@@ -177,7 +168,7 @@ class Planck_lite_montepython(Likelihood):
                 line = fid_file.readline()
 
 
-            l = np.arange(2509)
+            l = np.arange(2476)
             self.ell_factor = l*(l+1)/2./np.pi
 
             self.Cl_fid[0, 2:] /= self.ell_factor[2:]
@@ -253,9 +244,9 @@ class Planck_lite_montepython(Likelihood):
         # Note: expected to be dimensioneless, no l(l+1) factor, ells=[0, 2508]
 
        
-        cl_theo_tt = np.zeros(2509)
-        cl_theo_te = np.zeros(2509)
-        cl_theo_ee = np.zeros(2509)
+        cl_theo_tt = np.zeros(2476)
+        cl_theo_te = np.zeros(2476)
+        cl_theo_ee = np.zeros(2476)
 
 
         cl_theo_tt[:self.l_max+1]  = cl['tt']
