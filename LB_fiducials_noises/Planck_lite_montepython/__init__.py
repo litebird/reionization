@@ -249,9 +249,9 @@ class Planck_lite_montepython(Likelihood):
         cl_theo_ee = np.zeros(2476)
 
 
-        cl_theo_tt[:self.l_max+1]  = cl['tt']
-        cl_theo_te[:self.l_max+1]  = cl['te']
-        cl_theo_ee[:self.l_max+1]  = cl['ee']
+        cl_theo_tt[:self.l_max+1]  = cl['tt'][:self.l_max+1]
+        cl_theo_te[:self.l_max+1]  = cl['te'][:self.l_max+1]
+        cl_theo_ee[:self.l_max+1]  = cl['ee'][:self.l_max+1]
 
         # Compute likelihood
         binned_th_cl = np.hstack((
