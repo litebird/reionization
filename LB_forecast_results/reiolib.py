@@ -13,6 +13,8 @@ _k_B_ = 1.3806504e-23
 _h_P_ = 6.62606896e-34
 sigma_B = 2.*(np.pi**5.)*(_k_B_**4.)/15./(_h_P_**3.)/(_c_**2)
 T_cmb = 2.7255
+def same(x):
+    return x
 
 # YHe interpolator, accurate at 1e-7 level for massless neutrinos,
 # and 1e-4 for massive neutrinos (even for sum_mnu ~ 1 eV)
@@ -48,13 +50,14 @@ def xe_tanhdz(z, omega_b, z_re, dz_re):
 def xe_tanh(z, omega_b, z_re):
     return xe_tanhdz(z, omega_b, z_re, 0.5*np.ones(z_re.shape))
 
-# Flexknot with 1 knot
-def xe_flex1(z, omega_b, z_f1, xe_f1):
+# Flexknot with 1 knot, z_beg=30 and z_end=5
+def xe_flex1(z, omega_b, z_f1, xe_f1, quiet=False):
     fHe = fHe_fct(omega_b)
     # Deal with knots
     xe = np.zeros((len(z), len(omega_b)))
-    for i in tqdm(range(len(omega_b))):
-        x = [0., 4.9, 5., z_f1[i], 30., 31.]
+    tqdm_or_not = same if quiet else tqdm
+    for i in tqdm_or_not(range(len(omega_b))):
+        x = [0., 4.9, 5., z_f1[i], 30., 100.]
         y = [1+fHe[i], 1+fHe[i], 1+fHe[i], xe_f1[i], 0., 0.]
         interp = PchipInterpolator(x, y)
         xe[:, i] = interp(z)
@@ -63,13 +66,14 @@ def xe_flex1(z, omega_b, z_f1, xe_f1):
     xe += fHe * (np.tanh(arg)+1.) / 2.
     return xe
 
-# Flexknot with 1 knot
-def xe_flex2(z, omega_b, z_f1, xe_f1, z_f2, xe_f2):
+# Flexknot with 2 knots, z_beg=30 and z_end=5
+def xe_flex2(z, omega_b, z_f1, xe_f1, z_f2, xe_f2, quiet=False):
     fHe = fHe_fct(omega_b)
     # Deal with knots
     xe = np.zeros((len(z), len(omega_b)))
-    for i in tqdm(range(len(omega_b))):
-        x = [0., 4.9, 5., z_f1[i], z_f2[i], 30., 31.]
+    tqdm_or_not = same if quiet else tqdm
+    for i in tqdm_or_not(range(len(omega_b))):
+        x = [0., 4.9, 5., z_f1[i], z_f2[i], 30., 100.]
         y = [1+fHe[i], 1+fHe[i], 1+fHe[i], xe_f1[i], xe_f2[i], 0., 0.]
         interp = PchipInterpolator(x, y)
         xe[:, i] = interp(z)
@@ -78,14 +82,31 @@ def xe_flex2(z, omega_b, z_f1, xe_f1, z_f2, xe_f2):
     xe += fHe * (np.tanh(arg)+1.) / 2.
     return xe
 
-# Flexknot with 1 knot
-def xe_flexalt(z, omega_b, z_f1, z_f2, xe_f2, z_f3):
+# Flexknot with 1 knot, free z_beg and z_end
+def xe_flexalt(z, omega_b, z_f1, z_f2, xe_f2, z_f3, quiet=False):
     fHe = fHe_fct(omega_b)
     # Deal with knots
     xe = np.zeros((len(z), len(omega_b)))
-    for i in tqdm(range(len(omega_b))):
-        x = [0., 4.9, z_f1[i], z_f2[i], z_f3[i], 31.]
+    tqdm_or_not = same if quiet else tqdm
+    for i in tqdm_or_not(range(len(omega_b))):
+        x = [0., 4.9, z_f1[i], z_f2[i], z_f3[i], 100.]
         y = [1+fHe[i], 1+fHe[i], 1+fHe[i], xe_f2[i], 0., 0.]
+        interp = PchipInterpolator(x, y)
+        xe[:, i] = interp(z)
+    # Deal with HeII
+    arg = (reio_he_z - z[:, None]) / reio_he_dz
+    xe += fHe * (np.tanh(arg)+1.) / 2.
+    return xe
+
+# Flexknot with 0 knot, free z_beg and z_end
+def xe_flexaltalt(z, omega_b, z_f1, z_f2, quiet=False):
+    fHe = fHe_fct(omega_b)
+    # Deal with knots
+    xe = np.zeros((len(z), len(omega_b)))
+    tqdm_or_not = same if quiet else tqdm
+    for i in tqdm_or_not(range(len(omega_b))):
+        x = [0., z_f1[i], z_f2[i], 100.]
+        y = [1+fHe[i], 1+fHe[i], 0., 0.]
         interp = PchipInterpolator(x, y)
         xe[:, i] = interp(z)
     # Deal with HeII
@@ -106,3 +127,18 @@ def tau_integ(z_arr, xe_arr, omega_b, H0, omega_cdm):
     H_arr = H0 * 1e3 * np.sqrt(Omega_m * (1+z_arr)**3. + Omega_r*(1+z_arr)**4. + Omega_l) / _Mpc_over_m_
     comov = _c_ / H_arr
     return n_e * xe_arr * comov * (1+z_arr)**2. * _sigma_
+
+# Compute tau(z) integrand
+def tau_integ_bis(z_arr, xe_arr, omega_b, H0, omega_cdm):
+    h = H0/100
+    YHe = YHe_fct((DeltaNeff_ref, omega_b))
+    n_e = 3 * (1e2 * 1e3)**2. / _Mpc_over_m_ * omega_b / (8*np.pi*_G_*_m_H_) * (1-YHe)
+    Omega_m = (omega_b + omega_cdm) / h**2.
+    Omega_g = (4.*sigma_B/_c_*(T_cmb**4.))/(3.*_c_*_c_*1e10*h*h/_Mpc_over_m_/_Mpc_over_m_/8./np.pi/_G_)
+    Omega_ur = 3.044*7./8.*((4./11.)**(4./3.))*Omega_g
+    Omega_r = Omega_g + Omega_ur
+    Omega_l = 1. - Omega_m - Omega_g - Omega_r
+    H_arr2 = (H0 * 1e3)**2. * (Omega_m * (1+z_arr)**3. + Omega_r*(1+z_arr)**4. + Omega_l)
+    H_arr = np.sqrt(H_arr2)
+    comov = _c_ / H_arr
+    return n_e * xe_arr * (1+z_arr)**2. * _sigma_, comov
