@@ -97,6 +97,20 @@ def xe_flexalt(z, omega_b, z_f1, z_f2, xe_f2, z_f3, quiet=False):
     arg = (reio_he_z - z[:, None]) / reio_he_dz
     xe += fHe * (np.tanh(arg)+1.) / 2.
     return xe
+def xe_flexalt_extprior(z, omega_b, z_f1, z_f2, xe_f2, z_f3, quiet=False):
+    fHe = fHe_fct(omega_b)
+    # Deal with knots
+    xe = np.zeros((len(z), len(omega_b)))
+    tqdm_or_not = same if quiet else tqdm
+    for i in tqdm_or_not(range(len(omega_b))):
+        x = [0., z_f1[i]-0.1, z_f1[i], z_f2[i], z_f3[i], 100.]
+        y = [1+fHe[i], 1+fHe[i], 1+fHe[i], xe_f2[i], 0., 0.]
+        interp = PchipInterpolator(x, y)
+        xe[:, i] = interp(z)
+    # Deal with HeII
+    arg = (reio_he_z - z[:, None]) / reio_he_dz
+    xe += fHe * (np.tanh(arg)+1.) / 2.
+    return xe
 
 # Flexknot with 0 knot, free z_beg and z_end
 def xe_flexaltalt(z, omega_b, z_f1, z_f2, quiet=False):
