@@ -3,7 +3,7 @@
 
 
 ### CMB-S4
-* ```S4_CMB_noise.dat```: white noise for 1muK.arcmin
+* ```S4_CMB_noise.dat```: white noise for 1muK.arcmin (TBC)
 * ```s4wide_ilc_residuals.dat```: foreground residuals after ILC ([github](https://github.com/sriniraghunathan/DRAFT/tree/master/products/20220726))
 
 ### Simons Observatory
