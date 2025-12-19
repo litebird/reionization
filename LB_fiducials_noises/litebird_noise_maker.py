@@ -6,7 +6,7 @@ E_noise_in_muKarcmin = 6.56
 arcmin_to_radian = np.pi / 180. / 60
 ells = np.arange(2, 2501)
 
-# 20 arcmin.muK noises
+# deconvolve noises with 20 arcmin
 theta_in_arcmin = 20.
 N_TT_20 = (arcmin_to_radian * E_noise_in_muKarcmin / np.sqrt(2.))**2. * (
     np.exp(ells * (ells+1) * (arcmin_to_radian * theta_in_arcmin)**2. / 8. / np.log(2.)))
@@ -20,7 +20,7 @@ np.savetxt(
     header="All N_ell in µK^2\nell   |   N_ell_TT   |   N_ell_EE",
 )
 
-# 30 arcmin.muK noises
+# deconvolve noises with 30 arcmin
 theta_in_arcmin = 30.
 N_TT_30 = (arcmin_to_radian * E_noise_in_muKarcmin / np.sqrt(2.))**2. * (
     np.exp(ells * (ells+1) * (arcmin_to_radian * theta_in_arcmin)**2. / 8. / np.log(2.)))
@@ -34,3 +34,24 @@ np.savetxt(
     header="All N_ell in µK^2\nell   |   N_ell_TT   |   N_ell_EE",
 )
 
+
+
+# Add residuals
+noise_30 = np.loadtxt("noise_litebird_b30.dat")
+res_file = "out_cls_nilc_baseline_fwhm30acm_fsky80_maskP.dat"
+noise_pP_30_f80 = np.loadtxt(f"litebird_residuals/{res_file}", skiprows=2)
+noise_30[:1023, 2] = noise_pP_30_f80[:, 3]
+np.savetxt(
+    f"noise_litebird_nilc_b30_f80.dat",
+    noise_30,
+    header=f"ell   |   N_ell_TT   |   N_ell_EE\n{res_file}")
+
+
+noise_30 = np.loadtxt("noise_litebird_b30.dat")
+res_file = "out_cls_nilc_baseline_fwhm30acm_fsky70_maskP.dat"
+noise_pP_30_f80 = np.loadtxt(f"litebird_residuals/{res_file}", skiprows=2)
+noise_30[:1023, 2] = noise_pP_30_f80[:, 3]
+np.savetxt(
+    f"noise_litebird_nilc_b30_f70.dat",
+    noise_30,
+    header=f"ell   |   N_ell_TT   |   N_ell_EE\n{res_file}")
