@@ -8,7 +8,7 @@ This is the repo for the "Optical Depth, Reionization of the Universe and Neutri
 * ```Planck```:
   Planck data are spread into three different likelihoods following the original version of the Planck likelihoods.
   * ```Planck lowT```:
-    likelihood based on the PR3 low-ℓ TT posterior distributions of measured $C_\ell$ fitted with a Wishart ($\alpha_\ell, \beta_\ell$). We then rescaled to the mock fiducial model with $\beta_\ell \longrightarrow \beta_\ell^{\rm mock} = C_{\ell,{\rm mock}}^{TT}\,(\alpha_\ell+1)$. Multipole range available $\ell \in [2,29]$.
+    likelihood based on the PR3 low-ℓ TT posterior distributions of measured $C_\ell$ fitted with a Wishart ($\alpha_\ell, \beta_\ell$). We then rescaled to the mock fiducial model with $\beta_\ell \longrightarrow \beta_\ell^{\rm mock} = (\alpha_\ell+1)C_{\ell,{\rm mock}}^{TT}$. Multipole range available $\ell \in [2,29]$.
 
   * ```Planck lowE```:
     Hamimeche&Lewis approximation using the Planck PR4 covariance matrix (LoLLiPoP) evaluated at the mock fiducial spectrum. Multipole range available $\ell \in [2,29]$.
