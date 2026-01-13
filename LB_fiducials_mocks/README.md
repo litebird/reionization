@@ -1,6 +1,6 @@
 # Fiducial models for reionization studies
 
-This folder contains the lensed and unlensed CMB spectra produced by CLASS (v3.2.0).
+This folder contains the lensed and unlensed CMB spectra produced by CLASS (modified for reionization [CLASS_REIO](https://github.com/s-ilic/class_reio/tree/main)).
 
 • `model_A`: tanh model
 
