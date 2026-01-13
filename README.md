@@ -2,6 +2,9 @@
 
 This is the repo for the "Optical Depth, Reionization of the Universe and Neutrino Masses" projet paper.
 
+## Reionization history
+
+We used two models as mock data (see `LB_fiducials_mock`)
 
 ## Likelihood description
 
@@ -25,4 +28,15 @@ This is the repo for the "Optical Depth, Reionization of the Universe and Neutri
 * ```CMB-S4```:
   Wishart likelihood with noise curves including foreground residuals. Multipole range available (depending on the noise file).
 
-  
+## Datasets noise
+
+Noises are described in `LB_fiducials_noises`
+
+## Reionization models
+
+We fit the data with 4 different models:
+* `tanh`: tanh model with $z_{reio}$ ($\Delta z$ fixed)
+* `tanhdz`:  tanh model with $z_{reio}$ and $\Delta z$
+* `flex1`: FlexKnot model with 3 knots ( (z1=0,xe1=1.08), (z2,xe2=1.08), (z3,xe3=0) )
+* `flex2`: FlexKnot model with 4 knots ( (z1=0,xe1=1.08), (z2,xe2=1.08), (z3,xe3), (z4,xe4=0) )
+
