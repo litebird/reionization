@@ -1,0 +1,20 @@
+Planck_lite_B_lmin601.l_min = 2
+
+Planck_lite_B_lmin601.l_max = 2508
+
+Planck_lite_B_lmin601.ell_cut = 601
+
+Planck_lite_B_lmin601.T_cmb = 2.7255 
+
+Planck_lite_B_lmin601.data_directory = data.path['data']
+
+Planck_lite_B_lmin601.fiducial_file = 'model_B_lm6000_cl_lensed.dat'
+
+Planck_lite_B_lmin601.planck_bin_file = 'noise_planck_bin_ref_lmax2500.dat'
+
+Planck_lite_B_lmin601.cov_file = 'noise_planck_lite.dat'
+
+Planck_lite_B_lmin601.LensingExtraction = False
+Planck_lite_B_lmin601.neglect_TD = True
+Planck_lite_B_lmin601.unlensed_clTTTEEE = False
+
