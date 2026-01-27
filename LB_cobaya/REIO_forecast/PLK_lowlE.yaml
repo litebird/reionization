@@ -1,0 +1,6 @@
+cl_used: EE
+lmin: 2
+lmax: 29
+
+cl_cov: LB_fiducials_noises/clcov_lolEB_NPIPE.fits
+cl_fiducial: LB_fiducials_mocks/modelA/model_A_cl_lensed.dat

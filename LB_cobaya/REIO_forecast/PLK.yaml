@@ -1,0 +1,10 @@
+cl_used: TT EE TE
+data_ranges:
+  TT: 30 2508
+  TE: 30 1996
+  EE: 30 1996
+
+bin_ref: LB_fiducials_noises/noise_planck_bin_ref.dat
+cl_cov: LB_fiducials_noises/noise_planck_lite.dat
+cl_fiducial: LB_fiducials_mocks/modelA/model_A_cl_lensed.dat
+

@@ -1,0 +1,8 @@
+cl_used: TT EE TE
+lmin: 500
+lmax: 5000
+fsky: 0.4
+
+cl_noise: LB_fiducials_noises/s4wide_ilc_residuals.dat
+#cl_noise: S4_CMB_noise.dat
+cl_fiducial: LB_fiducials_mocks/modelA/model_A_cl_lensed.dat

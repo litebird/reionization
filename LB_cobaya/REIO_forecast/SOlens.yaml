@@ -1,0 +1,6 @@
+lmin: 2
+lmax: 5000
+fsky: 0.4
+
+cl_noise: LB_fiducials_noises/SO_lensing_noise_nlkk.dat
+cl_fiducial: LB_fiducials_mocks/modelA/model_A_cl_lensed.dat

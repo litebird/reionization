@@ -1,0 +1,7 @@
+cl_used: TT EE TE
+lmin: 2
+lmax: 126
+fsky: 0.8
+
+cl_noise: LB_fiducials_noises/noise_litebird_nilc_b30_f80.dat
+cl_fiducial: LB_fiducials_mocks/modelA/model_A_cl_lensed.dat

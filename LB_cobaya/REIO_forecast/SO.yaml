@@ -1,0 +1,7 @@
+cl_used: TT EE TE
+lmin: 500
+lmax: 5000
+fsky: 0.4
+
+cl_noise: LB_fiducials_noises/SO_goal_noise_standard_ILC.txt
+cl_fiducial: LB_fiducials_mocks/modelA/model_A_cl_lensed.dat

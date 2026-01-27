@@ -1,0 +1,5 @@
+lmin: 2
+lmax: 29
+
+Wishart_distrib: LB_fiducials_noises/Planck_TT_wishart.dat
+cl_fiducial: LB_fiducials_mocks/modelA/model_A_cl_lensed.dat
