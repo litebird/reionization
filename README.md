@@ -4,7 +4,7 @@ This is the repo for the "Optical Depth, Reionization of the Universe and Neutri
 
 ## Reionization history
 
-We used two models as mock data (see `LB_fiducials_mock`)
+We used two models as mock data (see `LB_fiducials_mocks`)
 
 ## Likelihood description
 
