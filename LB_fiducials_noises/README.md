@@ -1,9 +1,10 @@
 ## Noise descriptions ##
 
-
+### LiteBIRD
+* ```noise_litebird_nilc_b30_f80.dat```: noise from NILC residuals with beam 30arcmin and 80% of the sky (march 2025)
 
 ### CMB-S4
-* ```S4_CMB_noise.dat```: white noise for 1muK.arcmin (TBC)
+* ```S4_CMB_noise.dat```: white noise for 1muK.arcmin
 * ```s4wide_ilc_residuals.dat```: foreground residuals after ILC ([github](https://github.com/sriniraghunathan/DRAFT/tree/master/products/20220726))
 
 ### Simons Observatory
