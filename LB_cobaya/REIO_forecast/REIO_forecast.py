@@ -166,7 +166,7 @@ class _Wishart(InstallableLikelihood):
         self.clnoi = dict( (s,np.zeros(int(max(clnoise[0]))+1)) for s in ['TT','EE','BB','TE','TB','EB'])
         for i,s in enumerate(['TT','EE']):
             self.clnoi[s][np.array(clnoise[0],int)] = clnoise[i+1]
-        self.clnoi['BB'] = clnoise[2]
+        self.clnoi['BB'] = self.clnoi['EE']
         
         # Fiducial spectrum Dl (l,TT,EE,TE,BB,phiphi,Tphi,Ephi) from CLASS
         self.log.debug(f"Reading model: {self.cl_fiducial}")
