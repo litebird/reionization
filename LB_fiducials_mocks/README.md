@@ -12,7 +12,7 @@ Default: $\Delta z = 0.5$, $\tau =0.06$
 
 • `model_B`: exp asymmetric model
 
-$x_e(z) = \frac{f}{2} \left[ (z_{beg} - z) / (z_{beg} - z_{end}) \right]^{\alpha_{re}}$
+$x_e(z) = f \left[ (z_{beg} - z) / (z_{beg} - z_{end}) \right]^{\alpha_{re}}$
 
 Default: $\alpha_{re} = 6$, $z_{end} = 5.$, $z_{beg} = 26.456663499594907$ so that $\tau = 0.06$.
 
