@@ -10,7 +10,7 @@
 
 ### Simons Observatory
 
-* ```SO_goal_noise_standard_ILC.txt```: noise+residuals after ILC (ref?)
+* ```SO_goal_noise_standard_ILC.txt```: noise+residuals after ILC ([github](https://github.com/simonsobs/so_noise_models/tree/master/LAT_comp_sep_noise/v3.1.0))
 * ```sogoal_ilc_residuals.dat```: noise+residuals after ILC ([github](https://github.com/sriniraghunathan/DRAFT/tree/master/products/20220726))
 
 ### Planck
