@@ -1,0 +1,5 @@
+This folder contains the MontePython likelihoods, parameter files and data used in part of the analysis of the LiteBIRD Reionization and Neutrino Masses project paper. The CLASS version used is class_reio (https://github.com/s-ilic/class_reio).
+
+The MontePython implementation is complementary to the Cobaya one. The runs using Planck lowl are only implemented in Cobaya. 
+
+In the likelihoods folder there are the LiteBIRD, SO, White Noise (representing ideally CMB-S4 without foreground residuals and 1/f noise) and DESI/Euclid BAO likelihoods. In the paramfile one there are the input parameter files for different data combinations and different runs (mnu varied or fixed, with tanh/tanhdz/flex1/flex2 reionization models). In the data directory there are the spectra and noise curves for each run. They have been adapted from the data in the LB_fiducial_mocks and LB_fiducial_noises directories to be used for MontePython (i.e. the spectra are the fiducial spectra + noise, starting from the ell min of that likelihood). 

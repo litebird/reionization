@@ -1,0 +1,76 @@
+#------Experiments to test (separated with commas)-----
+# To see all the available ones, please look in the
+# montepython/likelihoods folder. Every folder there is a valid likelihood to
+# test.
+data.experiments=['litebird_A_f80_30_nilc_lmax700', "SO_A_goal_standard_ILC_lmax5000_lmin700", "SO_lensing", "fake_desi_euclid_bao"]
+
+#------ Parameter list -------
+# data.parameters[class name] = [mean, min, max, 1-sigma, scale, role]
+# - if min max irrelevant, put to -1 or None (if you want a boundary of -1, use -1.0)
+# - if fixed, put 1-sigma to 0
+# - if scale irrelevant, put to 1, otherwise to the appropriate factor
+# - role is either 'cosmo', 'nuisance' or 'derived'
+
+
+# Cosmological parameters list
+data.parameters['omega_b']      = [2.2383,   None,None, 0.00015,0.01,'cosmo']
+data.parameters['omega_cdm']    = [0.12011,  None,None, 0.0014,    1,'cosmo']
+data.parameters['n_s']          = [0.96605,  None,None, 0.004,     1,'cosmo']
+data.parameters['ln10^{10}A_s']         = [3.04476,   None,None, 0.016,  1,'cosmo']
+data.parameters['h']         = [0.67, None, None, 0.01,   1,'cosmo']
+data.parameters['M_tot']     = [0.06, 0.0, None, 0.1, 1,'cosmo']
+
+# fixed first knot, 1-sigma is put to 0
+data.parameters['reio_flexknot_z__1']           = [0,   None, None,   0, 1,   'cosmo']
+data.parameters['reio_flexknot_xe__1']          = [1.08, None, None,   0, 1,   'cosmo']
+
+#first sampled knot, for the end of reionization, fixed xe
+data.parameters['reio_flexknot_z__2']           = [7.0,   4., 30.,   0.01, 1,   'cosmo']
+data.parameters['reio_flexknot_xe__2']          = [1.08, None, None,   0, 1,   'cosmo']
+
+#second sampled knot, sampling z and xe
+data.parameters['reio_flexknot_z__3']           = [7.5,   4., 30.,   0.01, 1,   'cosmo']
+data.parameters['reio_flexknot_xe__3']          = [0.54, 0, 1.08,   0.01, 1,   'cosmo']
+#data.parameters['reio_flexknot_xe__3']          = [1.08, 0, None,   0.01, 1,   'cosmo']
+
+# varing knot (with __i ending i in [1,9], must be continues, must match the value of 'reio_flexknot_num'), beginning of reio
+data.parameters['reio_flexknot_z__4']           = [8.0,   4., 30., 0.01, 1,   'cosmo']
+data.parameters['reio_flexknot_xe__4']          = [-1., None, None, 0, 1,   'cosmo']
+
+# Derived parameter list
+#data.parameters['H0']           = [0,       None, None, 0,1,  'derived']
+data.parameters['100*theta_s']     = [0,       None, None, 0,1,  'derived']
+data.parameters['tau_reio']     = [0,       None, None, 0,1,  'derived']
+
+data.cosmo_arguments['reio_parametrization'] = 'reio_flexknot'
+data.cosmo_arguments['reio_flexknot_num'] = 4
+data.cosmo_arguments['reio_flexknot_smooth_start'] = 1
+data.cosmo_arguments['reio_flexknot_add_HeII_tanh'] = 1
+data.cosmo_arguments['reio_flexknot_xe_scheme'] = 2
+
+# fixed CLASS parameters
+#data.cosmo_arguments['sBBN file'] = data.path['cosmo']+'/external/bbn/sBBN.dat'
+# massive neutrinos:
+
+data.cosmo_arguments["reio_interp_type"] = 1
+data.cosmo_arguments["reio_zmax_calc_tau"] = 30.
+data.cosmo_arguments["calc_tau_method"] = 1
+data.cosmo_arguments['N_ur'] = 0.00441
+data.cosmo_arguments['non linear'] = 'halofit'
+data.cosmo_arguments['modes'] = 's'
+data.cosmo_arguments['output'] = 'tCl pCl lCl'
+data.cosmo_arguments['lensing'] = 'yes'
+data.cosmo_arguments['l_max_scalars'] = 6000
+data.cosmo_arguments['tol_shooting_deltax_rel'] = 1e-6
+data.cosmo_arguments['reionization_z_start_max'] = 100.
+data.cosmo_arguments['reionization_sampling'] = 1e-2
+data.cosmo_arguments['N_ncdm'] = 1
+#data.cosmo_arguments['m_ncdm'] = 0.02
+data.cosmo_arguments['deg_ncdm'] = 3
+
+#------ Mcmc parameters ----
+# Number of steps taken, by default (overwritten by the -N command)
+data.N=10
+# Number of accepted steps before writing to file the chain. Larger means less
+# access to disc, but this is not so much time consuming.
+data.write_step=5
