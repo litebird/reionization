@@ -25,8 +25,11 @@ We used two models as mock data (see `LB_fiducials_mocks`)
 * ```Simons-Observatory```:
   Wishart likelihood with noise curves including foreground residuals. Multipole range available (depending on the noise file).
 
-* ```CMB-S4```:
-  Wishart likelihood with noise curves including foreground residuals. Multipole range available (depending on the noise file).
+* ```White-noise (ideal CMB-S4)```:
+  Wishart likelihood with noise curves. Multipole range available (depending on the noise file).
+
+* ```BAO```:
+  BAO Gaussian likelihood for the line of sight quantity $H(z)\,r_s$ and the transverse quantity $D_A(z)/r_s$. The expected measurement errors are based on future surveys, including DESI and Euclid.
 
 ## Datasets noise
 

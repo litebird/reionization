@@ -22,3 +22,6 @@ Help for usage of the Planck-lite data can be found in ```planck_lite_usage_exam
 ### Lensing
 * ```S4_lensing_noise_nlkk.dat```: lensing noise curve for CMB-S4
 * ```SO_lensing_noise_nlkk.dat```: lensing noise curve for Simons-Observatory ([github](https://github.com/simonsobs/so_noise_models/tree/master/LAT_lensing_noise/lensing_v3_1_0/nlkk_v3_1_0deproj0_SENS2_fsky0p4_it_lT30-3000_lP30-5000.dat))
+
+### BAO
+* ```bao_desi_euclid_sensitivity.txt```: BAO sensitivity for a combination of DESI and Euclid (from z = 0.15 to 0.75 for DESI, and from 0.85 to 2.05 for Euclid) ([github](https://github.com/brinckmann/montepython_public/blob/3.6/data/bao_desi_euclid_sensitivity.txt)) 

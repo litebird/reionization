@@ -1,3 +1,0 @@
-Burn-in = 2000
-Sample thinning = 10
-Walker thinning = 1
